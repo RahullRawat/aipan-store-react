@@ -1,0 +1,171 @@
+.product {
+	display: flex;
+}
+
+.filter-product {
+	width: 20%;
+	height: 100vh;
+	padding: 5rem 0rem 5rem 8rem;
+	position: sticky;
+	top: 0;
+	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);
+}
+
+.filter-heading > h1 {
+	font-size: 1.8rem;
+	color: var(--global-color);
+}
+
+.filters > h2 {
+	font-size: 1.6rem;
+	color: var(--global-color);
+}
+
+.filters {
+	display: flex;
+	flex-direction: column;
+}
+
+.slider {
+	width: 50%;
+}
+
+.filter-product > .btn-link {
+	width: 5rem;
+	font-size: 1.6rem;
+	margin-top: 5rem;
+	background-color: var(--global-color);
+}
+
+label {
+	cursor: pointer;
+	margin-left: 0.3rem;
+}
+
+.product-container {
+	width: 60%;
+	height: fit-content;
+	margin: 5rem auto;
+}
+
+.product-search {
+	width: 91%;
+	margin: auto;
+	display: flex;
+}
+
+.product-search > input {
+	margin-right: 2rem;
+	height: 4rem;
+}
+
+.product-search > .btn-search {
+	min-width: 10rem;
+	height: 4rem;
+	font-size: 1.6rem;
+	color: var(--white-color);
+	background-color: var(--global-color);
+	border: none;
+	padding: 0.8rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.product-search > .btn-search:hover {
+	font-weight: 900;
+	border: 2px solid var(--global-color);
+}
+
+.featured-items {
+	position: relative;
+	border: 1px solid rgb(245, 149, 149);
+	border-radius: 0.4rem;
+	padding: 0.8rem;
+	margin: 5rem 1.5rem 0 1.5rem;
+}
+
+.featured-items > a > .fa-heart {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 1.5rem;
+	color: var(--global-color);
+	background-color: var(--white-color);
+	border-radius: 50%;
+	padding: 1rem;
+	transition: 0.3s all ease;
+}
+
+.featured-items > a > .fa-heart:hover {
+	padding: 1.1rem;
+}
+
+.featured-items > .price-container {
+	padding-left: 1rem;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.rating {
+	font-size: 1.4rem;
+}
+
+.currency {
+	font-size: 1.5rem;
+	margin: 0.4rem 0;
+	color: var(--currency-color);
+}
+
+.rating > .fa-star {
+	color: #fdd835;
+	padding-left: 0.4rem;
+}
+
+.show-products {
+	color: var(--global-color);
+	margin-top: 3rem;
+	margin-left: 5rem;
+	font-size: 1.8rem;
+	font-weight: 900;
+	text-align: left;
+}
+
+.show-products > span {
+	font-size: 1.4rem;
+	font-weight: 700;
+	color: var(--global-color);
+	margin-left: 0.5rem;
+}
+
+@media only screen and (max-width: 1200px) {
+	.filter-product {
+		padding: 2rem 0 0 3rem;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.filter-product {
+		width: 25%;
+		padding: 2rem;
+	}
+}
+
+@media only screen and (max-width: 560px) {
+	.filter-product {
+		display: none;
+	}
+
+	.product-search {
+		flex-direction: column;
+	}
+
+	.show-products {
+		margin-left: 0rem;
+		font-size: 2rem;
+		text-align: center;
+	}
+}
