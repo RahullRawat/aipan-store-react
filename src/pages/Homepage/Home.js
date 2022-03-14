@@ -124,7 +124,7 @@ export const Home = () => {
 							/>
 						</a>
 						<div className="price-container text-center">
-							<p className="item-name">Handcrafted square tea coaster</p>
+							<p className="item-name">Handcrafted tea coaster</p>
 							<span className="currency">Rs 740.00</span>
 						</div>
 						<a href="../cart/cart.html">
