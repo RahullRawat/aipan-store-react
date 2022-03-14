@@ -20,6 +20,7 @@
 .hero-container h1 {
 	font-size: 14rem;
 	font-family: "Qwigley", cursive;
+	color: var(--white-color);
 }
 
 .btn-primary {
