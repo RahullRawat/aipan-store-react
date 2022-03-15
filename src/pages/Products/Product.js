@@ -1,6 +1,7 @@
 import React from "react";
 import "./Product.css";
 import { Filter } from "./components/Filter";
+import { Link } from "react-router-dom";
 
 export const Product = () => {
 	return (
@@ -18,16 +19,16 @@ export const Product = () => {
 
 				<div className="featured-categories text-left">
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets/paintings/sun-painting.jpg"
 								alt="paintings"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container">
 							<p className="item-name">Sun Painting</p>
@@ -38,24 +39,24 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets/bags/bag1.jpg"
 								alt="bag"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container ">
 							<p className="item-name">Cotton Fabric Bag</p>
@@ -66,24 +67,24 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets//diary/diary2.jpg"
 								alt="diary"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container ">
 							<p className="item-name"> Handmade Diary</p>
@@ -94,24 +95,24 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets/coaster/coaster2.jpg"
 								alt="coaster"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container ">
 							<p className="item-name">Handcrafted tea coaster</p>
@@ -122,24 +123,24 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets/coaster/coaster1.jpg"
 								alt="coaster"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container ">
 							<p className="item-name">Handcrafted tea coaster</p>
@@ -150,24 +151,24 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets/diary/diary3.jpg"
 								alt="diary"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container ">
 							<p className="item-name">Handmade Diary</p>
@@ -178,24 +179,24 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets/bags/bag2.jpg"
 								alt="bags"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container ">
 							<p className="item-name">Cotton Fabric Bag</p>
@@ -206,24 +207,24 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 
 					<div className="featured-items">
-						<a href="#">
+						<Link to="#">
 							<img
 								src="https://aipan-store.netlify.app/assets/paintings/painting1.jpg"
 								alt="paintings"
 							/>
-						</a>
+						</Link>
 
-						<a href="../wishlist/wishlist.html">
+						<Link to="/wishlist">
 							<i className="far fa-heart"></i>
-						</a>
+						</Link>
 
 						<div className="price-container ">
 							<p className="item-name">Aipan Painting</p>
@@ -234,11 +235,11 @@ export const Product = () => {
 								</small>
 							</div>
 						</div>
-						<a href="../cart/cart.html">
+						<Link to="/cart">
 							<button className="btn btn-primary btn-category">
 								Add to cart
 							</button>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</main>

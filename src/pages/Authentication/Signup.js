@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Signup = () => {
 	return (
 		<section className="login-container">
 			<div className="login">
 				<h1 className="login-title md-text">Signup</h1>
-				<Form className="login-htmlForm sm-text">
+				<form className="login-form sm-text">
 					<label htmlFor="name">Name</label>
 					<input id="name" type="text" placeholder="Enter Name" />
 					<label htmlFor="email">Username or Email </label>
@@ -21,7 +22,7 @@ export const Signup = () => {
 
 					<label htmlFor="password">Confirm Password </label>
 					<input id="password" type="password" placeholder="Enter password" />
-				</Form>
+				</form>
 
 				<div className="term-condition">
 					<input id="term-condition" type="checkbox" />
@@ -33,7 +34,7 @@ export const Signup = () => {
 				<button className="btn btn-login">Signup</button>
 
 				<div className="no-account">
-					Already have an account ? <a href="../login/login.html">Login </a>
+					Already have an account ? <Link to="/login">Login </Link>
 				</div>
 			</div>
 		</section>
