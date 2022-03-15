@@ -2,13 +2,13 @@ import React from "react";
 
 export const Signup = () => {
 	return (
-		<section class="login-container">
-			<div class="login">
-				<h1 class="login-title md-text">Signup</h1>
-				<form class="login-form sm-text">
-					<label for="name">Name</label>
+		<section className="login-container">
+			<div className="login">
+				<h1 className="login-title md-text">Signup</h1>
+				<Form className="login-htmlForm sm-text">
+					<label htmlFor="name">Name</label>
 					<input id="name" type="text" placeholder="Enter Name" />
-					<label for="email">Username or Email </label>
+					<label htmlFor="email">Username or Email </label>
 					<input
 						id="email"
 						name="email"
@@ -16,21 +16,23 @@ export const Signup = () => {
 						placeholder="Enter Email"
 					/>
 
-					<label for="password">Password </label>
+					<label htmlFor="password">Password </label>
 					<input id="password" type="password" placeholder="Enter password" />
 
-					<label for="password">Confirm Password </label>
+					<label htmlFor="password">Confirm Password </label>
 					<input id="password" type="password" placeholder="Enter password" />
-				</form>
+				</Form>
 
-				<div class="term-condition">
+				<div className="term-condition">
 					<input id="term-condition" type="checkbox" />
-					<label for="term-condition"> I accept all terms & conditions</label>
+					<label htmlFor="term-condition">
+						I accept all terms & conditions
+					</label>
 				</div>
 
-				<button class="btn btn-login">Signup</button>
+				<button className="btn btn-login">Signup</button>
 
-				<div class="no-account">
+				<div className="no-account">
 					Already have an account ? <a href="../login/login.html">Login </a>
 				</div>
 			</div>
