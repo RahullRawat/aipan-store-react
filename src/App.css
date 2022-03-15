@@ -1,2 +1,4 @@
-@import url("https://meta-ui.netlify.app/style.css");
-@import url("https://aipan-store.netlify.app/style.css");
+:root {
+	--global-color: #ef3f49;
+	--currency-color: #44c4ac;
+}
