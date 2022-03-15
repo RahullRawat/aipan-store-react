@@ -141,6 +141,12 @@ label {
 	margin-left: 0.5rem;
 }
 
+.error-msg,
+.loading-msg {
+	font-weight: 500;
+	margin-top: 20rem;
+}
+
 @media only screen and (max-width: 1200px) {
 	.filter-product {
 		padding: 2rem 0 0 3rem;
