@@ -1,29 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 export const Navbar = () => {
 	return (
 		<div className="nav-bar">
 			<div className="nav-brand-title">
-				<a href="https://aipan-store.netlify.app/">The Aipan Store</a>
+				<Link to="/">The Aipan Store</Link>
 			</div>
 			<div className="nav-center sm-text">
-				<a href="https://aipan-store.netlify.app/">Home</a>
-				<a href="https://aipan-store.netlify.app/">Products</a>
+				<Link to="/">Home</Link>
+				<Link to="/product">Products</Link>
 			</div>
 			<div className="nav-links sm-text">
-				<a href="https://aipan-store.netlify.app/">
+				<Link to="/">
 					<i className="fas fa-search"></i>
-				</a>
-				<a href="https://aipan-store.netlify.app/">
+				</Link>
+				<Link to="/wishlist">
 					<i className="far fa-heart"></i>
-				</a>
-				<a href="https://aipan-store.netlify.app/">
+				</Link>
+				<Link to="/cart">
 					<i className="fas fa-shopping-cart"></i>
-				</a>
-				<a href="https://aipan-store.netlify.app/" className="btn btn-nav">
+				</Link>
+				<Link to="/login" className="btn btn-nav">
 					Login
-				</a>
+				</Link>
 			</div>
 			<div className="hamburger-icon md-text">
 				<i className="fas fa-bars"></i>
