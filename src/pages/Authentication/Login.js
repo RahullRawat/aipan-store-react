@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Authentication.css";
 
 export const Login = () => {
@@ -18,13 +19,13 @@ export const Login = () => {
 					<label htmlFor="password">Password </label>
 					<input id="password" type="password" placeholder="Enter password" />
 				</form>
-				<a href="#" className="forgot-password">
+				<Link to="#" className="forgot-password">
 					Forgot Your Password ?
-				</a>
+				</Link>
 				<button className="btn btn-login">Login</button>
 
 				<div className="no-account">
-					Don't have an account ? <a href="../signup/signup.html">Sign Up </a>
+					Don't have an account ? <Link to="/signup">Sign Up </Link>
 				</div>
 			</div>
 		</section>

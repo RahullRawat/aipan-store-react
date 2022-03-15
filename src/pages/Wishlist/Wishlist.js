@@ -1,5 +1,6 @@
 import React from "react";
 import "./Wishlist.css";
+import { Link } from "react-router-dom";
 
 export const Wishlist = () => {
 	return (
@@ -8,72 +9,72 @@ export const Wishlist = () => {
 
 			<div className="featured-categories">
 				<div className="featured-items">
-					<a href="#">
+					<Link to="#">
 						<img
 							src="https://aipan-store.netlify.app/assets/diary/diary5.jpg"
 							alt="diary"
 						/>
-					</a>
+					</Link>
 
-					<a href="#">
+					<Link to="#">
 						<i className="far fa-heart fw-900"></i>
-					</a>
+					</Link>
 
 					<div className="price-container text-center">
 						<p className="item-name">Handmade Diary</p>
 						<span className="currency">Rs 560.00</span>
 					</div>
-					<a href="../cart/cart.html">
+					<Link to="/cart">
 						<button className="btn btn-primary btn-category">
 							Move to cart
 						</button>
-					</a>
+					</Link>
 				</div>
 
 				<div className="featured-items">
-					<a href="#">
+					<Link to="#">
 						<img
 							src="https://aipan-store.netlify.app/assets/paintings/sun-face-painting.jpg"
 							alt="paintings"
 						/>
-					</a>
+					</Link>
 
-					<a href="#">
+					<Link to="#">
 						<i className="far fa-heart fw-900"></i>
-					</a>
+					</Link>
 
 					<div className="price-container text-center">
 						<p className="item-name">Sun Face Aipan Painting</p>
 						<span className="currency">Rs 3800.00</span>
 					</div>
-					<a href="../cart/cart.html">
+					<Link to="/cart">
 						<button className="btn btn-primary btn-category">
 							Move to cart
 						</button>
-					</a>
+					</Link>
 				</div>
 
 				<div className="featured-items">
-					<a href="#">
+					<Link to="#">
 						<img
 							src="https://aipan-store.netlify.app/assets/bags/bag3.jpg"
 							alt="bags"
 						/>
-					</a>
+					</Link>
 
-					<a href="#">
+					<Link to="#">
 						<i className="far fa-heart fw-900"></i>
-					</a>
+					</Link>
 
 					<div className="price-container text-center">
 						<p className="item-name">Cotton Fabric Bag</p>
 						<span className="currency">Rs 740.00</span>
 					</div>
-					<a href="../cart/cart.html">
+					<Link to="/cart">
 						<button className="btn btn-primary btn-category">
 							Move to cart
 						</button>
-					</a>
+					</Link>
 				</div>
 			</div>
 		</>

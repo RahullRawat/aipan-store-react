@@ -1,5 +1,6 @@
 import React from "react";
 import "./Cart.css";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
 	return (
@@ -23,9 +24,9 @@ export const Cart = () => {
 							</div>
 						</div>
 						<button className="btn btn-cart">Remove from cart</button>
-						<a href="../wishlist/wishlist.html">
+						<Link to="">
 							<button className="btn btn-wishlist">Move to Wishlist</button>
-						</a>
+						</Link>
 					</div>
 				</div>
 
