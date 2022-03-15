@@ -1,0 +1,160 @@
+h1 {
+	color: var(--global-color);
+}
+
+.card-product {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	max-width: 1400px;
+	margin: auto;
+	margin-top: 5rem;
+}
+
+.card-horizontal {
+	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);
+}
+
+.card-horizontal > .card-content {
+	padding: 3rem;
+}
+
+.card-horizontal > div > h1 {
+	font-size: 2rem;
+	font-weight: 900;
+}
+
+.card-horizontal > div > h6 {
+	font-size: 1.6rem;
+	margin-top: 1rem;
+	color: var(--currency-color);
+}
+
+.product-quantity-container {
+	display: flex;
+	margin: 2.5rem 0;
+}
+
+.product-quantity-container > span {
+	color: var(--global-color);
+}
+
+.product-quantity {
+	margin-left: 2.5rem;
+	display: flex;
+}
+
+.product-quantity-decrease,
+.product-quantity-increase {
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.product-quantity-input {
+	max-width: 4rem;
+	height: 2.5rem;
+	margin: 0 0.5rem;
+}
+
+.btn {
+	width: 100%;
+	margin-top: 1.5rem;
+	font-size: 1.7rem;
+}
+
+.btn-cart {
+	color: var(--global-color);
+	border: 1px solid var(--global-color);
+	background-color: transparent;
+	transition: 0.3s all ease;
+}
+
+.btn-cart:hover {
+	color: var(--white-color);
+	background-color: var(--global-color);
+}
+
+.btn-wishlist {
+	background-color: var(--global-color);
+	transition: 0.3s all ease;
+}
+
+.btn-wishlist:hover {
+	color: var(--global-color);
+	border: 1px solid var(--global-color);
+	background-color: transparent;
+}
+
+.price-details-container {
+	width: 500px;
+	padding: 2rem;
+	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);
+}
+
+.price-detail {
+	display: flex;
+	justify-content: space-between;
+}
+
+.price-detail > span {
+	margin-top: 1rem;
+}
+
+.total-amount-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+hr {
+	margin: 1rem 0;
+}
+
+.place-order {
+	border: 1px solid var(--global-color);
+}
+
+.currency {
+	color: var(--currency-color);
+}
+
+span {
+	font-size: 1.8rem;
+	font-weight: 700;
+}
+
+@media only screen and (max-width: 1024px) {
+	.card-product {
+		justify-content: center;
+		max-width: 800px;
+		margin: auto;
+		margin-top: 4rem;
+	}
+
+	.card-horizontal {
+		margin-bottom: 4rem;
+	}
+
+	.price-details-container {
+		margin-bottom: 8rem;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.card-product {
+		max-width: 500px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.card-product {
+		max-width: 280px;
+	}
+
+	.card-horizontal {
+		flex-direction: column;
+	}
+
+	.card-horizontal > img {
+		width: 100%;
+	}
+}

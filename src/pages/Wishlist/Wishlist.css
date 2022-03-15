@@ -1,0 +1,8 @@
+.featured-items > a > .fw-900 {
+	font-weight: 900;
+}
+
+.heading {
+	font-weight: 700;
+	color: var(--global-color);
+}
