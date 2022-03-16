@@ -2,13 +2,48 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Product.css";
 import { Filter } from "./components/Filter";
+import { useFilter } from "./utils/FilterContext";
 import { ProductSearch } from "./components/ProductSearch";
 import { Link } from "react-router-dom";
+import {
+	filterBySlider,
+	filterByPriceRange,
+	filterByCategory,
+	filterByRating,
+	filterBySort,
+} from "./utils/FilterFunctions";
 
 export const Product = () => {
 	const [products, setProducts] = useState([]);
 	const [error, setError] = useState(false);
 	const [loader, setLoader] = useState(false);
+
+	const { state } = useFilter();
+	const {
+		sortBy,
+		priceRange,
+		rating,
+		paintings,
+		bags,
+		diary,
+		coaster,
+		sliderRange,
+	} = state;
+
+	const filterBySliderData = filterBySlider(products, sliderRange);
+	const filterByPriceRangeData = filterByPriceRange(
+		filterBySliderData,
+		priceRange
+	);
+	const filterByCategoryData = filterByCategory(
+		filterByPriceRangeData,
+		paintings,
+		bags,
+		diary,
+		coaster
+	);
+	const filterByRatingData = filterByRating(filterByCategoryData, rating);
+	const filterBySortData = filterBySort(filterByRatingData, sortBy);
 
 	useEffect(() => {
 		(async () => {
@@ -38,7 +73,7 @@ export const Product = () => {
 				{loader && <h1 className="loading-msg">Loading.....</h1>}
 
 				<div className="featured-categories text-left">
-					{products.map(({ title, price, img, rating, id }) => {
+					{filterBySortData.map(({ title, price, img, rating, id }) => {
 						return (
 							<div className="featured-items" key={id}>
 								<Link to="#">
