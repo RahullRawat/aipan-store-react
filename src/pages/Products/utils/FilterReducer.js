@@ -13,13 +13,6 @@ export const filterReducer = (state, action) => {
 			};
 		}
 
-		// case "CATEGORY": {
-		// 	return {
-		// 		...state,
-		// 		category: action.payload,
-		// 	};
-		// }
-
 		case "PAINTINGS": {
 			return {
 				...state,
@@ -66,7 +59,6 @@ export const filterReducer = (state, action) => {
 				sortBy: null,
 				priceRange: null,
 				rating: null,
-				// category: null,
 				paintings: false,
 				bags: false,
 				diary: false,
