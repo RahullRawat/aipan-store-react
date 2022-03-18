@@ -13,10 +13,19 @@
 .btn-nav {
 	padding: 0.8rem 2rem;
 	color: var(--global-color);
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
 }
 
 .hamburger-icon {
 	display: none;
+}
+
+.firstName {
+	font-size: 1.6rem;
+	color: var(--white-color);
+	margin-left: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
