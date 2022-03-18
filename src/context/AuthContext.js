@@ -55,7 +55,6 @@ const AuthProvider = ({ children }) => {
 			}
 		} catch (err) {
 			authDispatch({ type: "LOG-IN-ERROR" });
-			console.log(err);
 		}
 	};
 
@@ -66,7 +65,6 @@ const AuthProvider = ({ children }) => {
 				email,
 				password,
 			});
-			console.log(response);
 			if (response.status === 200 || 201) {
 				localStorage.setItem("token", response.data.encodedToken);
 				localStorage.setItem(
@@ -84,7 +82,6 @@ const AuthProvider = ({ children }) => {
 			}
 		} catch (err) {
 			authDispatch({ type: "SIGN-UP-ERROR" });
-			console.log(err);
 		}
 	};
 
