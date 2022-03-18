@@ -1,5 +1,5 @@
 import React from "react";
-import { useFilter } from "../utils/FilterContext";
+import { useFilter } from "../../../context/FilterContext";
 import { SliderFilter } from "./Filters/SliderFilter";
 import { PriceRangeFilter } from "./Filters/PriceRangeFilter";
 import { CategoryFilter } from "./Filters/CategoryFilter";
