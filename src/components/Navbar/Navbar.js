@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "./Navbar.css";
 
 export const Navbar = () => {
+	const { userData, signOut } = useAuth();
 	return (
 		<div className="nav-bar">
 			<div className="nav-brand-title">
@@ -22,9 +24,20 @@ export const Navbar = () => {
 				<Link to="/cart">
 					<i className="fas fa-shopping-cart"></i>
 				</Link>
-				<Link to="/login" className="btn btn-nav">
-					Login
-				</Link>
+				{!userData && (
+					<Link to="/login">
+						<button className="btn-nav">LogIn</button>
+					</Link>
+				)}
+
+				{userData && (
+					<Link to="/">
+						<button className="btn-nav" onClick={signOut}>
+							LogOut
+						</button>
+						<span className="firstName">{userData.firstName}</span>
+					</Link>
+				)}
 			</div>
 			<div className="hamburger-icon md-text">
 				<i className="fas fa-bars"></i>
