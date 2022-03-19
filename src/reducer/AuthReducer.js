@@ -25,12 +25,6 @@ const authReducer = (state, action) => {
 				password: action.payload,
 			};
 
-		case "LOG-IN-ERROR":
-			return {
-				...state,
-				signInError: "Log In Failed! ",
-			};
-
 		case "SIGN-UP":
 			return {
 				...state,
@@ -50,12 +44,6 @@ const authReducer = (state, action) => {
 				password: action.payload,
 			};
 
-		case "SIGN-UP-ERROR":
-			return {
-				...state,
-				signUpError: "Sign Up Failed! ",
-			};
-
 		case "TOKEN-REMOVED":
 			return {
 				...state,
@@ -68,6 +56,12 @@ const authReducer = (state, action) => {
 				...state,
 				userData: action.payload.loadUser,
 				token: action.payload.loadToken,
+			};
+
+		case "ERROR":
+			return {
+				...state,
+				error: action.payload,
 			};
 
 		default:
