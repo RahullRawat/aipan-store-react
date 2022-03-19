@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export const Signup = () => {
-	const { firstName, email, password, authDispatch, signUpError, signUp } =
-		useAuth();
+	const { firstName, email, password, authDispatch, error, signUp } = useAuth();
 
 	const signUpHandler = (e) => {
 		e.preventDefault();
@@ -13,7 +12,7 @@ export const Signup = () => {
 
 	return (
 		<section className="login-container">
-			{signUpError && <h1 className="">{signUpError}</h1>}
+			{error && <h6 className="signup-error-msg">{error}</h6>}
 			<div className="login">
 				<h1 className="login-title md-text">Signup</h1>
 				<form className="login-form sm-text" onSubmit={signUpHandler}>

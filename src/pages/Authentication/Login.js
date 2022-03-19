@@ -4,7 +4,7 @@ import "./Authentication.css";
 import { useAuth } from "../../context/AuthContext";
 
 export const Login = () => {
-	const { email, password, logInError, authDispatch, logIn } = useAuth();
+	const { email, password, error, authDispatch, logIn } = useAuth();
 
 	const logInHandler = (e) => {
 		e.preventDefault();
@@ -12,8 +12,8 @@ export const Login = () => {
 	};
 	return (
 		<section className="login-container">
-			{logInError && <h1 className="">{logInError}</h1>}
 			<div className="login">
+				{<h6 className="text-center login-error-msg">{error}</h6>}
 				<h1 className="login-title md-text">Login</h1>
 				<form className="login-form sm-text" onSubmit={logInHandler}>
 					<label htmlFor="email">Email </label>
