@@ -76,7 +76,7 @@ const AuthProvider = ({ children }) => {
 	};
 
 	const signOut = () => {
-		authDispatch({ type: "TOKEN-REMOVED" });
+		authDispatch({ type: "LOGOUT" });
 		localStorage.removeItem("token");
 		localStorage.removeItem("userData");
 	};
@@ -95,13 +95,7 @@ const AuthProvider = ({ children }) => {
 	return (
 		<AuthContext.Provider
 			value={{
-				firstName,
-				email,
-				password,
-				userData,
-				token,
-				error,
-				// authState,
+				authState,
 				authDispatch,
 				logIn,
 				signUp,
