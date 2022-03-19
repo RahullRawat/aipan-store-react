@@ -12,8 +12,12 @@ export const Signup = () => {
 
 	return (
 		<section className="login-container">
-			{error && <h6 className="signup-error-msg">{error}</h6>}
 			<div className="login">
+				{error && (
+					<h6 className="text-center signup-error-msg">
+						"Please try again later"
+					</h6>
+				)}
 				<h1 className="login-title md-text">Signup</h1>
 				<form className="login-form sm-text" onSubmit={signUpHandler}>
 					<label htmlFor="name">Name</label>

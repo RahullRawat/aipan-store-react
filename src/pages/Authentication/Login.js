@@ -13,7 +13,11 @@ export const Login = () => {
 	return (
 		<section className="login-container">
 			<div className="login">
-				{<h6 className="text-center login-error-msg">{error}</h6>}
+				{error && (
+					<h6 className="text-center login-error-msg">
+						"Please try again later"
+					</h6>
+				)}
 				<h1 className="login-title md-text">Login</h1>
 				<form className="login-form sm-text" onSubmit={logInHandler}>
 					<label htmlFor="email">Email </label>
