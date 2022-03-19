@@ -64,3 +64,8 @@
 .term-condition > input {
 	margin-right: 0.5rem;
 }
+
+.login-error-msg,
+.signup-error-msg {
+	margin-bottom: 2rem;
+}

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Product.css";
 import { Filter } from "./components/Filter";
-import { useFilter } from "./utils/FilterContext";
+import { useFilter } from "../../context/FilterContext";
 import { ProductSearch } from "./components/ProductSearch";
 import { Link } from "react-router-dom";
 import {
@@ -70,7 +70,7 @@ export const Product = () => {
 						Oops something went wrong, Please try again later !!!
 					</h1>
 				)}
-				{loader && <h1 className="loading-msg">Loading.....</h1>}
+				{loader && <span class="loader"></span>}
 
 				<div className="featured-categories text-left">
 					{filterBySortData.map(({ title, price, img, rating, id }) => {
