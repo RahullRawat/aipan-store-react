@@ -95,7 +95,12 @@ const AuthProvider = ({ children }) => {
 	return (
 		<AuthContext.Provider
 			value={{
-				authState,
+				firstName,
+				email,
+				password,
+				userData,
+				token,
+				error,
 				authDispatch,
 				logIn,
 				signUp,
