@@ -9,7 +9,7 @@ const initialState = {
 	firstName: "",
 	email: "",
 	password: "",
-	error: "",
+	error: false,
 	userData: "",
 	token: "",
 };
@@ -44,7 +44,6 @@ const AuthProvider = ({ children }) => {
 		} catch (err) {
 			authDispatch({
 				type: "ERROR",
-				payload: "Please try again later!!",
 			});
 		}
 	};
@@ -72,7 +71,7 @@ const AuthProvider = ({ children }) => {
 				navigate("/");
 			}
 		} catch (err) {
-			authDispatch({ type: "ERROR", payload: "Please try again later!!" });
+			authDispatch({ type: "ERROR" });
 		}
 	};
 
@@ -102,6 +101,7 @@ const AuthProvider = ({ children }) => {
 				userData,
 				token,
 				error,
+				// authState,
 				authDispatch,
 				logIn,
 				signUp,
