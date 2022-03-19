@@ -9,23 +9,14 @@ const initialState = {
 	firstName: "",
 	email: "",
 	password: "",
-	logInError: "",
-	signUpError: "",
+	error: "",
 	userData: "",
 	token: "",
 };
 
 const AuthProvider = ({ children }) => {
 	const [authState, authDispatch] = useReducer(authReducer, initialState);
-	const {
-		firstName,
-		email,
-		password,
-		logInError,
-		signUpError,
-		userData,
-		token,
-	} = authState;
+	const { firstName, email, password, userData, token, error } = authState;
 	const navigate = useNavigate();
 
 	const logIn = async () => {
@@ -34,7 +25,6 @@ const AuthProvider = ({ children }) => {
 				email,
 				password,
 			});
-			console.log(response);
 			if (response.status === 200) {
 				localStorage.setItem("token", response.data.encodedToken);
 				localStorage.setItem(
@@ -50,11 +40,12 @@ const AuthProvider = ({ children }) => {
 					},
 				});
 				navigate("/product");
-			} else {
-				throw new Error();
 			}
 		} catch (err) {
-			authDispatch({ type: "LOG-IN-ERROR" });
+			authDispatch({
+				type: "ERROR",
+				payload: "Please try again later!!",
+			});
 		}
 	};
 
@@ -81,7 +72,7 @@ const AuthProvider = ({ children }) => {
 				navigate("/");
 			}
 		} catch (err) {
-			authDispatch({ type: "SIGN-UP-ERROR" });
+			authDispatch({ type: "ERROR", payload: "Please try again later!!" });
 		}
 	};
 
@@ -110,8 +101,7 @@ const AuthProvider = ({ children }) => {
 				password,
 				userData,
 				token,
-				logInError,
-				signUpError,
+				error,
 				authDispatch,
 				logIn,
 				signUp,
