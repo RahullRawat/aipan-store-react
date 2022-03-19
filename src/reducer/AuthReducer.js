@@ -44,7 +44,7 @@ const authReducer = (state, action) => {
 				password: action.payload,
 			};
 
-		case "TOKEN-REMOVED":
+		case "LOGOUT":
 			return {
 				...state,
 				userData: null,
