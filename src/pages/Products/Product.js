@@ -68,7 +68,7 @@ export const Product = () => {
 	const { token } = useAuth();
 	const navigate = useNavigate();
 
-	const addToCartHandler = async (product) => {
+	const addToCartHandler = (product) => {
 		if (token) {
 			addToCart(product, cartDispatch, token);
 		} else {
