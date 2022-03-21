@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Authentication.css";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/index";
 
 export const Login = () => {
 	const { email, password, error, authDispatch, logIn } = useAuth();
