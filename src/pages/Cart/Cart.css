@@ -3,15 +3,20 @@ h1 {
 }
 
 .card-product {
+	max-width: 1300px;
+	margin: 5rem auto 3rem;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	max-width: 1400px;
-	margin: auto;
-	margin-top: 5rem;
+	align-items: flex-start;
+	gap: 5rem;
+}
+
+.card-product > .cart-items {
+	width: 100%;
 }
 
 .card-horizontal {
+	margin-top: 4rem;
+	width: 70%;
 	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);
 }
 
@@ -48,6 +53,7 @@ h1 {
 .product-quantity-increase {
 	width: 2.5rem;
 	height: 2.5rem;
+	cursor: pointer;
 }
 
 .product-quantity-input {
@@ -86,8 +92,9 @@ h1 {
 }
 
 .price-details-container {
-	width: 500px;
+	width: 45%;
 	padding: 2rem;
+	margin-top: 4rem;
 	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);
 }
 
@@ -120,6 +127,16 @@ hr {
 span {
 	font-size: 1.8rem;
 	font-weight: 700;
+}
+
+.cart-empty-msg {
+	margin-top: 30rem;
+	text-align: center;
+}
+
+.btn-empty {
+	width: 20rem;
+	border: 1.5px solid var(--global-color);
 }
 
 @media only screen and (max-width: 1024px) {
