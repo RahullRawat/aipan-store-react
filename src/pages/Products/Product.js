@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Product.css";
 import { Filter } from "./components/Filter";
-import { useFilter } from "../../context/FilterContext";
 import { ProductSearch } from "./components/ProductSearch";
-import { Link } from "react-router-dom";
+import { ProductCard } from "./components/ProductCard";
+import { useFilter } from "../../context/index";
 import {
 	filterBySlider,
 	filterByPriceRange,
@@ -12,6 +12,11 @@ import {
 	filterByRating,
 	filterBySort,
 } from "./utils/FilterFunctions";
+import { addToCart } from "../../pages/Cart/utils/addToCart";
+
+import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const Product = () => {
 	const [products, setProducts] = useState([]);
@@ -59,6 +64,18 @@ export const Product = () => {
 		})();
 	}, []);
 
+	const { cartState, cartDispatch } = useCart();
+	const { token } = useAuth();
+	const navigate = useNavigate();
+
+	const addToCartHandler = (product) => {
+		if (token) {
+			addToCart(product, cartDispatch, token);
+		} else {
+			navigate("/login");
+		}
+	};
+
 	return (
 		<div className="product">
 			<Filter />
@@ -73,33 +90,13 @@ export const Product = () => {
 				{loader && <span class="loader"></span>}
 
 				<div className="featured-categories text-left">
-					{filterBySortData.map(({ title, price, img, rating, id }) => {
+					{filterBySortData.map((product) => {
 						return (
-							<div className="featured-items" key={id}>
-								<Link to="#">
-									<img src={img} alt="paintings" />
-								</Link>
-
-								<Link to="/wishlist">
-									<i className="far fa-heart"></i>
-								</Link>
-
-								<div className="price-container">
-									<p className="item-name">{title}</p>
-									<div className="flex">
-										<span className="currency">Rs {price}</span>
-										<small className="rating">
-											{rating}
-											<i className="fas fa-star"></i>
-										</small>
-									</div>
-								</div>
-								<Link to="/cart">
-									<button className="btn btn-primary btn-category">
-										Add to cart
-									</button>
-								</Link>
-							</div>
+							<ProductCard
+								key={product._id}
+								product={product}
+								addToCartHandler={addToCartHandler}
+							/>
 						);
 					})}
 				</div>
