@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../context";
-import { removeFromCart } from "../utils/removeFromCart";
-import { quantityHandler } from "../utils/quantityHandler";
+import { removeFromCart } from "../services/removeFromCart";
+import { quantityHandler } from "../services/quantityHandler";
 import { useAuth } from "../../../context";
 
 const CartProduct = () => {
