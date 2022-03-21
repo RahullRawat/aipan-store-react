@@ -22,7 +22,7 @@ export const Navbar = () => {
 				<Link to="/wishlist">
 					<i className="far fa-heart"></i>
 				</Link>
-				<Link to="/cart">
+				<Link to={userData ? "/cart" : "/login"}>
 					<div className="badge-container">
 						<div className="badge">
 							<i className="fas fa-shopping-cart "></i>
