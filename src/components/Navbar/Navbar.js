@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context";
 import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
 	const { userData, signOut } = useAuth();
+	const { cartState } = useCart();
+	const navigate = useNavigate();
 	return (
 		<div className="nav-bar">
 			<div className="nav-brand-title">
@@ -15,14 +19,20 @@ export const Navbar = () => {
 				<Link to="/product">Products</Link>
 			</div>
 			<div className="nav-links sm-text">
-				<Link to="/">
-					<i className="fas fa-search"></i>
-				</Link>
 				<Link to="/wishlist">
 					<i className="far fa-heart"></i>
 				</Link>
 				<Link to="/cart">
-					<i className="fas fa-shopping-cart"></i>
+					<div className="badge-container">
+						<div className="badge">
+							<i className="fas fa-shopping-cart "></i>
+							{cartState.cartItems.length === 0 ? (
+								""
+							) : (
+								<span className="cart-badge">{cartState.cartItems.length}</span>
+							)}
+						</div>
+					</div>
 				</Link>
 				{!userData && (
 					<Link to="/login">
