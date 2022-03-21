@@ -12,7 +12,7 @@ import {
 	filterByRating,
 	filterBySort,
 } from "./utils/FilterFunctions";
-import { addToCart } from "../../pages/Cart/utils/addToCart";
+import { addToCart } from "../../pages/Cart/services/addToCart";
 
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
