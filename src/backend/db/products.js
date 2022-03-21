@@ -9,7 +9,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Sun Painting",
-		price: "990",
+		price: 990,
 		rating: 4,
 		img: "https://aipan-store.netlify.app/assets/paintings/sun-painting.jpg",
 		categoryName: "paintings",
@@ -17,7 +17,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Cotton Fabric Bag",
-		price: "760",
+		price: 760,
 		rating: 2,
 		img: "https://aipan-store.netlify.app/assets/bags/bag1.jpg",
 		categoryName: "bags",
@@ -25,7 +25,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handmade Diary",
-		price: "560",
+		price: 560,
 		rating: 2,
 		img: "https://aipan-store.netlify.app/assets//diary/diary2.jpg",
 		categoryName: "diary",
@@ -33,7 +33,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handcrafted tea coaster",
-		price: "740",
+		price: 740,
 		rating: 3,
 		img: "https://aipan-store.netlify.app/assets/coaster/coaster2.jpg",
 		categoryName: "coaster",
@@ -41,7 +41,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handcrafted square coaster",
-		price: "890",
+		price: 890,
 		rating: 3,
 		img: "https://aipan-store.netlify.app/assets/coaster/coaster1.jpg",
 		categoryName: "coaster",
@@ -49,7 +49,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handmade Diary",
-		price: "560",
+		price: 560,
 		rating: 4,
 		img: "https://aipan-store.netlify.app/assets/diary/diary3.jpg",
 		categoryName: "diary",
@@ -57,7 +57,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Cotton Fabric Bag",
-		price: "760",
+		price: 760,
 		rating: 2,
 		img: "https://aipan-store.netlify.app/assets/bags/bag2.jpg",
 		categoryName: "bags",
@@ -65,7 +65,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Aipan Painting",
-		price: "2200",
+		price: 2200,
 		rating: 5,
 		img: "https://aipan-store.netlify.app/assets/paintings/painting1.jpg",
 		categoryName: "paintings",
@@ -73,7 +73,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Khadi Cotton Bag",
-		price: "840",
+		price: 840,
 		rating: 3.5,
 		img: "https://aipan-store.netlify.app/assets/bags/bag5.jpeg",
 		categoryName: "bags",
@@ -81,7 +81,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handcrafted round coaster",
-		price: "740",
+		price: 740,
 		rating: 3,
 		img: "https://aipan-store.netlify.app/assets/coaster/coaster4.jpg",
 		categoryName: "coaster",
@@ -89,7 +89,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Lord Buddha Wall Painting",
-		price: "1200",
+		price: 1200,
 		rating: 4.5,
 		img: "https://aipan-store.netlify.app/assets/paintings/lord-budha-wall-painting.jpg",
 		categoryName: "paintings",
@@ -97,7 +97,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Seven Chakra Flexi Notebook",
-		price: "640",
+		price: 640,
 		rating: 3.5,
 		img: "https://aipan-store.netlify.app/assets/diary/diary4.jpg",
 		categoryName: "diary",
@@ -105,7 +105,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Goddess Saraswati Painting",
-		price: "3200",
+		price: 3200,
 		rating: 5,
 		img: "https://aipan-store.netlify.app/assets/paintings/saraswati-painting.jpg",
 		categoryName: "paintings",
@@ -113,7 +113,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Beautiful Tote Bag",
-		price: "760",
+		price: 760,
 		rating: 2.5,
 		img: "https://aipan-store.netlify.app/assets/bags/bag4.jpg",
 		categoryName: "bags",
@@ -121,7 +121,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handcrafted tea coaster",
-		price: "740",
+		price: 740,
 		rating: 3,
 		img: "https://aipan-store.netlify.app/assets/coaster/coaster5.jpg",
 		categoryName: "coaster",
@@ -129,7 +129,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Folk Dance Painting",
-		price: "4000",
+		price: 4000,
 		rating: 5,
 		img: "https://aipan-store.netlify.app/assets/paintings/folk-dance-painting.jpg",
 		categoryName: "paintings",
@@ -137,7 +137,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handcrafted round coaster",
-		price: "740",
+		price: 740,
 		rating: 3,
 		img: "https://aipan-store.netlify.app/assets/coaster/coaster6.jpg",
 		categoryName: "coaster",
@@ -145,7 +145,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Handmade Diary",
-		price: "560",
+		price: 560,
 		rating: 4,
 		img: "https://aipan-store.netlify.app/assets/diary/diary5.jpg",
 		categoryName: "diary",
@@ -153,7 +153,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Sun Face Aipan Painting",
-		price: "3800",
+		price: 3800,
 		rating: 4.7,
 		img: "https://aipan-store.netlify.app/assets/paintings/sun-face-painting.jpg",
 		categoryName: "paintings",
@@ -161,7 +161,7 @@ export const products = [
 	{
 		_id: uuid(),
 		title: "Cotton Fabric Bag",
-		price: "740",
+		price: 740,
 		rating: 4.2,
 		img: "https://aipan-store.netlify.app/assets/bags/bag3.jpg",
 		categoryName: "bags",
