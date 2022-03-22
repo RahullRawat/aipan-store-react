@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../../context";
 import { removeFromCart } from "../services/removeFromCart";
 import { quantityHandler } from "../services/quantityHandler";
+import { addToWishlist } from "../../Wishlist/services/addToWishlist";
 import { useAuth } from "../../../context";
+import { useWishlist } from "../../../context";
 
 const CartProduct = () => {
 	const { cartState, cartDispatch } = useCart();
 	const { cartItems } = cartState;
+	const { wishlistDispatch } = useWishlist();
 	const { token } = useAuth();
 
 	const removeFromCartHandler = (_id) => {
@@ -16,6 +19,11 @@ const CartProduct = () => {
 
 	const updateQuantityHandler = (_id, type) => {
 		quantityHandler(_id, token, cartDispatch, type);
+	};
+
+	const moveToWishlistHandler = (product) => {
+		addToWishlist(product, token, wishlistDispatch);
+		removeFromCart(product._id, token, cartDispatch);
 	};
 	return (
 		<>
@@ -59,7 +67,12 @@ const CartProduct = () => {
 								Remove from cart
 							</button>
 							<Link to="">
-								<button className="btn btn-wishlist">Move to Wishlist</button>
+								<button
+									className="btn btn-wishlist"
+									onClick={() => moveToWishlistHandler(item)}
+								>
+									Move to Wishlist
+								</button>
 							</Link>
 						</div>
 					</div>

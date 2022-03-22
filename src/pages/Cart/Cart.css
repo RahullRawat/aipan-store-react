@@ -134,6 +134,10 @@ span {
 	text-align: center;
 }
 
+.cart-empty-msg > a {
+	padding: 2rem;
+}
+
 .btn-empty {
 	width: 20rem;
 	border: 1.5px solid var(--global-color);

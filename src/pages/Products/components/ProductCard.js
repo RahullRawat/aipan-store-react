@@ -2,11 +2,22 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../../context";
+import { useAuth } from "../../../context";
+import { useWishlist } from "../../../context";
+import { removeFromWishlist } from "../../Wishlist/services/removeFromWishlist";
 
-export const ProductCard = ({ product, addToCartHandler }) => {
+export const ProductCard = ({
+	product,
+	addToCartHandler,
+	addToWishlistHandler,
+}) => {
 	const navigate = useNavigate();
 	const { cartState } = useCart();
+	const { token } = useAuth();
 	const [itemInCart, setItemInCart] = useState(false);
+	const [itemInWishlist, setItemInWishlist] = useState(false);
+	const { wishlistState, wishlistDispatch } = useWishlist();
+	const { wishlistItems } = wishlistState;
 
 	useEffect(() => {
 		cartState.cartItems.find((item) => item._id === product._id)
@@ -14,15 +25,33 @@ export const ProductCard = ({ product, addToCartHandler }) => {
 			: setItemInCart(false);
 	}, [cartState.cartItems]);
 
+	useEffect(() => {
+		wishlistItems.find((item) => item._id === product._id)
+			? setItemInWishlist(true)
+			: setItemInWishlist(false);
+	}, [wishlistItems]);
+
+	const removeFromWishlistHandler = (id) => {
+		removeFromWishlist(id, token, wishlistDispatch);
+	};
+
 	return (
 		<div className="featured-items">
 			<Link to="#">
 				<img src={product.img} alt="paintings" />
 			</Link>
 
-			<Link to="/wishlist">
-				<i className="far fa-heart"></i>
-			</Link>
+			{itemInWishlist ? (
+				<i
+					className="far fa-heart fw-900"
+					onClick={() => removeFromWishlistHandler(product._id)}
+				></i>
+			) : (
+				<i
+					className="far fa-heart"
+					onClick={() => addToWishlistHandler(product)}
+				></i>
+			)}
 
 			<div className="price-container">
 				<p className="item-name">{product.title}</p>

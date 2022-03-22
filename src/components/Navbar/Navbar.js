@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context";
+import { useWishlist } from "../../context";
 import "./Navbar.css";
-import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
 	const { userData, signOut } = useAuth();
 	const { cartState } = useCart();
+	const { wishlistState } = useWishlist();
+	const { wishlistItems } = wishlistState;
 	const navigate = useNavigate();
 	return (
 		<div className="nav-bar">
@@ -19,8 +22,17 @@ export const Navbar = () => {
 				<Link to="/product">Products</Link>
 			</div>
 			<div className="nav-links sm-text">
-				<Link to="/wishlist">
-					<i className="far fa-heart"></i>
+				<Link to={userData ? "/wishlist" : "/login"}>
+					<div className="badge-container">
+						<div className="badge">
+							<i className="far fa-heart"></i>
+							{wishlistItems.length === 0 ? (
+								""
+							) : (
+								<span className="wishlist-badge">{wishlistItems.length}</span>
+							)}
+						</div>
+					</div>
 				</Link>
 				<Link to={userData ? "/cart" : "/login"}>
 					<div className="badge-container">
