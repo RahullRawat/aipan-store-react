@@ -11,14 +11,14 @@ export const Wishlist = () => {
 	const { token } = useAuth();
 	const { wishlistState, wishlistDispatch } = useWishlist();
 	const { wishlistItems } = wishlistState;
-	const { cartDispatch } = useCart();
+	const { cartState, cartDispatch } = useCart();
 
 	const removeFromWishlistHandler = (id) => {
 		removeFromWishlist(id, token, wishlistDispatch);
 	};
 
 	const moveToCartHandler = (product) => {
-		moveToCart(product, token, cartDispatch);
+		moveToCart(product, token, cartState, cartDispatch);
 		removeFromWishlist(product._id, token, wishlistDispatch);
 	};
 
