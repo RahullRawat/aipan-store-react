@@ -1,82 +1,73 @@
 import React from "react";
 import "./Wishlist.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context";
+import { useWishlist } from "../../context";
+import { useCart } from "../../context";
+import { removeFromWishlist } from "./services/removeFromWishlist";
+import { moveToCart } from "./services/moveToCart";
 
 export const Wishlist = () => {
+	const { token } = useAuth();
+	const { wishlistState, wishlistDispatch } = useWishlist();
+	const { wishlistItems } = wishlistState;
+	const { cartDispatch } = useCart();
+
+	const removeFromWishlistHandler = (id) => {
+		removeFromWishlist(id, token, wishlistDispatch);
+	};
+
+	const moveToCartHandler = (product) => {
+		moveToCart(product, token, cartDispatch);
+		removeFromWishlist(product._id, token, wishlistDispatch);
+	};
+
 	return (
 		<>
-			<div className="md-text text-center mt-4 heading">My Wishlist</div>
-
-			<div className="featured-categories">
-				<div className="featured-items">
-					<Link to="#">
-						<img
-							src="https://aipan-store.netlify.app/assets/diary/diary5.jpg"
-							alt="diary"
-						/>
-					</Link>
-
-					<Link to="#">
-						<i className="far fa-heart fw-900"></i>
-					</Link>
-
-					<div className="price-container text-center">
-						<p className="item-name">Handmade Diary</p>
-						<span className="currency">Rs 560.00</span>
+			{wishlistItems.length !== 0 ? (
+				<>
+					<div className="md-text text-center mt-4 heading">
+						My Wishlist ({wishlistItems.length})
 					</div>
-					<Link to="/cart">
-						<button className="btn btn-primary btn-category">
-							Move to cart
+					<div className="featured-categories">
+						{wishlistItems.map((item) => {
+							return (
+								<div className="featured-items" key={item._id}>
+									<Link to="#">
+										<img src={item.img} alt="diary" />
+									</Link>
+
+									<i
+										className="far fa-heart fw-900"
+										onClick={() => removeFromWishlistHandler(item._id)}
+									></i>
+
+									<div className="price-container text-center">
+										<p className="item-name">{item.title}</p>
+										<span className="currency">Rs {item.price}</span>
+									</div>
+
+									<button
+										className="btn btn-primary btn-category"
+										onClick={() => moveToCartHandler(item)}
+									>
+										Move to cart
+									</button>
+								</div>
+							);
+						})}
+					</div>
+				</>
+			) : (
+				<div className="cart-empty-msg">
+					<h1 className="lg-text">Your wishlist is empty</h1>
+					<Link to="/product">
+						<button className="btn btn-primary btn-empty">
+							Continue Shopping
 						</button>
 					</Link>
 				</div>
-
-				<div className="featured-items">
-					<Link to="#">
-						<img
-							src="https://aipan-store.netlify.app/assets/paintings/sun-face-painting.jpg"
-							alt="paintings"
-						/>
-					</Link>
-
-					<Link to="#">
-						<i className="far fa-heart fw-900"></i>
-					</Link>
-
-					<div className="price-container text-center">
-						<p className="item-name">Sun Face Aipan Painting</p>
-						<span className="currency">Rs 3800.00</span>
-					</div>
-					<Link to="/cart">
-						<button className="btn btn-primary btn-category">
-							Move to cart
-						</button>
-					</Link>
-				</div>
-
-				<div className="featured-items">
-					<Link to="#">
-						<img
-							src="https://aipan-store.netlify.app/assets/bags/bag3.jpg"
-							alt="bags"
-						/>
-					</Link>
-
-					<Link to="#">
-						<i className="far fa-heart fw-900"></i>
-					</Link>
-
-					<div className="price-container text-center">
-						<p className="item-name">Cotton Fabric Bag</p>
-						<span className="currency">Rs 740.00</span>
-					</div>
-					<Link to="/cart">
-						<button className="btn btn-primary btn-category">
-							Move to cart
-						</button>
-					</Link>
-				</div>
-			</div>
+			)}
 		</>
 	);
 };
