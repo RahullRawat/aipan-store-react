@@ -29,6 +29,11 @@ export const Cart = () => {
 							Continue Shopping
 						</button>
 					</Link>
+					<Link to="/wishlist">
+						<button className="btn btn-primary btn-empty">
+							Go to wishlist
+						</button>
+					</Link>
 				</div>
 			)}
 		</div>
