@@ -7,7 +7,6 @@ const addToWishlist = async (product, token, wishlistDispatch) => {
 			{ product },
 			{ headers: { authorization: token } }
 		);
-		console.log(response);
 		wishlistDispatch({
 			type: "ADD_TO_WISHLIST",
 			payload: response.data.wishlist,
