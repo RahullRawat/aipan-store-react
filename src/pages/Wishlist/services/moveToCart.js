@@ -1,19 +1,13 @@
-import axios from "axios";
+import { addToCart } from "../../Cart/services/addToCart";
+import { quantityHandler } from "../../Cart/services/quantityHandler";
 
-const moveToCart = async (product, token, cartDispatch) => {
-	try {
-		const response = await axios.post(
-			"/api/user/cart",
-			{ product },
-			{ headers: { authorization: token } }
-		);
-		if (response.status === 201) {
-			cartDispatch({ type: "ADD_TO_CART", payload: response.data.cart });
-		} else {
-			throw new Error();
-		}
-	} catch (error) {
-		console.log(error);
+const moveToCart = async (product, token, cartState, cartDispatch) => {
+	const { cartItems } = cartState;
+	const findItem = cartItems.find((item) => item._id === product._id);
+	if (findItem) {
+		quantityHandler(product._id, token, cartDispatch, "increment");
+	} else {
+		addToCart(product, cartDispatch, token);
 	}
 };
 
