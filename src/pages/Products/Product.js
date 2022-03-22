@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Product.css";
 import { Filter } from "./components/Filter";
@@ -12,11 +13,11 @@ import {
 	filterByRating,
 	filterBySort,
 } from "./utils/FilterFunctions";
-import { addToCart } from "../../pages/Cart/services/addToCart";
-
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useWishlist } from "../../context/WishlistContext";
+import { addToCart } from "../../pages/Cart/services/addToCart";
+import { addToWishlist } from "../Wishlist/services/addToWishlist";
 
 export const Product = () => {
 	const [products, setProducts] = useState([]);
@@ -64,13 +65,23 @@ export const Product = () => {
 		})();
 	}, []);
 
-	const { cartState, cartDispatch } = useCart();
 	const { token } = useAuth();
 	const navigate = useNavigate();
+	const { cartDispatch } = useCart();
 
 	const addToCartHandler = (product) => {
 		if (token) {
 			addToCart(product, cartDispatch, token);
+		} else {
+			navigate("/login");
+		}
+	};
+
+	const { wishlistDispatch } = useWishlist();
+
+	const addToWishlistHandler = (product) => {
+		if (token) {
+			addToWishlist(product, token, wishlistDispatch);
 		} else {
 			navigate("/login");
 		}
@@ -96,6 +107,7 @@ export const Product = () => {
 								key={product._id}
 								product={product}
 								addToCartHandler={addToCartHandler}
+								addToWishlistHandler={addToWishlistHandler}
 							/>
 						);
 					})}
