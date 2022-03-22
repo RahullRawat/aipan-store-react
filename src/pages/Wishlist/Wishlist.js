@@ -66,6 +66,9 @@ export const Wishlist = () => {
 							Continue Shopping
 						</button>
 					</Link>
+					<Link to="/cart">
+						<button className="btn btn-primary btn-empty">Go to cart</button>
+					</Link>
 				</div>
 			)}
 		</>
