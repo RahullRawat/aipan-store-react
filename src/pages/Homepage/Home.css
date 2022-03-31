@@ -83,6 +83,7 @@
 .btn-category {
 	width: 100%;
 	font-size: 1.8rem;
+	text-transform: capitalize;
 }
 
 .btn-category:hover {
