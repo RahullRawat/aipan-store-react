@@ -26,7 +26,7 @@ export const Wishlist = () => {
 		<>
 			{wishlistItems.length !== 0 ? (
 				<>
-					<div className="md-text text-center mt-4 heading">
+					<div className="md-text text-center mt-10 heading">
 						My Wishlist ({wishlistItems.length})
 					</div>
 					<div className="featured-categories">
