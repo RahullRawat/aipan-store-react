@@ -11,7 +11,7 @@ export const Cart = () => {
 		<div>
 			{cartState.cartItems.length !== 0 ? (
 				<>
-					<h1 className="text-center lg-text mt-4">
+					<h1 className="text-center lg-text  mt-10">
 						My Cart ({cartState.cartItems.length})
 					</h1>
 					<div className="card-product">
