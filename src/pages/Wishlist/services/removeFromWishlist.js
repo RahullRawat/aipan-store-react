@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const removeFromWishlist = async (id, token, wishlistDispatch) => {
 	try {
@@ -11,8 +12,9 @@ const removeFromWishlist = async (id, token, wishlistDispatch) => {
 				payload: response.data.wishlist,
 			});
 		}
+		toast.error("Item removed from wishlist");
 	} catch (error) {
-		console.log(error);
+		toast.error(error.response.data.errors[0]);
 	}
 };
 

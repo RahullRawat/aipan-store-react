@@ -6,3 +6,11 @@
 .mt-10 {
 	margin-top: 10rem;
 }
+
+.Toastify__toast--success {
+	font-size: 1.8rem;
+}
+
+.Toastify__toast--error {
+	font-size: 1.8rem;
+}

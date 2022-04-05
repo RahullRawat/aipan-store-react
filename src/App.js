@@ -2,12 +2,26 @@ import "./App.css";
 import { Navbar } from "./components/index";
 import { Home, Product, Login, Signup, Cart, Wishlist } from "./pages/index";
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Mockman from "mockman-js";
 import "./App.css";
 
 function App() {
 	return (
 		<div>
+			<ToastContainer
+				position="bottom-center"
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				theme="colored"
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />

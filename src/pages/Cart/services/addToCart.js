@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const addToCart = async (product, cartDispatch, token) => {
 	try {
@@ -9,11 +10,12 @@ const addToCart = async (product, cartDispatch, token) => {
 		);
 		if (response.status === 201) {
 			cartDispatch({ type: "ADD_TO_CART", payload: response.data.cart });
+			toast.success("Item added to cart");
 		} else {
-			throw new Error();
+			throw new Error("Something went wrong. Please try again later !!");
 		}
 	} catch (error) {
-		console.log(error);
+		toast.error(error.response.data.errors[0]);
 	}
 };
 
