@@ -69,3 +69,9 @@
 .signup-error-msg {
 	margin-bottom: 2rem;
 }
+
+@media only screen and (max-width: 320px) {
+	.login {
+		width: 32rem;
+	}
+}

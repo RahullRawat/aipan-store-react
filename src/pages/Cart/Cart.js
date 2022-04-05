@@ -15,9 +15,7 @@ export const Cart = () => {
 						My Cart ({cartState.cartItems.length})
 					</h1>
 					<div className="card-product">
-						<div className="cart-items">
-							<CartProduct />
-						</div>
+						<CartProduct />
 						<CartSummary cartState={cartState} />
 					</div>
 				</>

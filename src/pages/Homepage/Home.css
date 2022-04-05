@@ -96,8 +96,18 @@
 	}
 }
 
+@media only screen and (max-width: 768px) {
+	.featured-items {
+		width: 35rem;
+	}
+}
+
 @media only screen and (max-width: 350px) {
 	.hero-container h1 {
 		font-size: 7rem;
+	}
+
+	.featured-items {
+		width: 30rem;
 	}
 }
