@@ -21,7 +21,7 @@ const MobileFilters = ({ mobileFilters }) => {
 	return (
 		<div
 			className={
-				mobileFilters ? "mobile-filters" : `${"display-none mobile-filters"}`
+				mobileFilters ? "mobile-filters" : "display-none mobile-filters"
 			}
 		>
 			<div>
