@@ -10,10 +10,6 @@ h1 {
 	gap: 5rem;
 }
 
-.card-product > .cart-items {
-	width: 100%;
-}
-
 .card-horizontal {
 	margin-top: 4rem;
 	width: 70%;
@@ -145,7 +141,9 @@ span {
 
 @media only screen and (max-width: 1024px) {
 	.card-product {
+		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		max-width: 800px;
 		margin: auto;
 		margin-top: 4rem;
@@ -162,20 +160,29 @@ span {
 
 @media only screen and (max-width: 768px) {
 	.card-product {
-		max-width: 500px;
+		max-width: 600px;
 	}
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 425px) {
 	.card-product {
-		max-width: 280px;
+		max-width: 300px;
 	}
 
 	.card-horizontal {
+		width: 100%;
 		flex-direction: column;
 	}
 
 	.card-horizontal > img {
 		width: 100%;
+	}
+
+	.price-details-container {
+		width: 100%;
+	}
+
+	.product-quantity-container {
+		flex-direction: row;
 	}
 }

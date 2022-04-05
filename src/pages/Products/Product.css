@@ -1,5 +1,6 @@
 .product {
 	display: flex;
+	margin-top: 7rem;
 }
 
 .filter-product {
@@ -49,31 +50,33 @@ label {
 }
 
 .product-search {
-	width: 91%;
+	width: 93%;
 	margin: auto;
 	display: flex;
 }
 
 .product-search > input {
-	margin-right: 2rem;
 	height: 4rem;
+	border-radius: 0.5rem 0 0 0.5rem;
 }
 
 .product-search > .btn-search {
-	min-width: 10rem;
+	min-width: 4rem;
 	height: 4rem;
 	font-size: 1.6rem;
 	color: var(--white-color);
 	background-color: var(--global-color);
-	border: none;
-	padding: 0.8rem;
-	border-radius: 0.5rem;
+	padding: 1rem 0.8rem;
+	border-radius: 0rem 0.5rem 0.5rem 0;
 	cursor: pointer;
 }
 
 .product-search > .btn-search:hover {
-	font-weight: 900;
-	border: 2px solid var(--global-color);
+	border: 1px solid var(--global-color);
+}
+
+.btn-filters {
+	display: none;
 }
 
 .featured-items {
@@ -126,22 +129,6 @@ label {
 	padding-left: 0.4rem;
 }
 
-.show-products {
-	color: var(--global-color);
-	margin-top: 3rem;
-	margin-left: 5rem;
-	font-size: 1.8rem;
-	font-weight: 900;
-	text-align: left;
-}
-
-.show-products > span {
-	font-size: 1.4rem;
-	font-weight: 700;
-	color: var(--global-color);
-	margin-left: 0.5rem;
-}
-
 .error-msg {
 	font-weight: 500;
 	margin-top: 20rem;
@@ -151,8 +138,8 @@ label {
 	animation: rotate 1s infinite;
 	height: 50px;
 	width: 50px;
+	align-self: center;
 	margin-top: 20rem;
-	margin-left: 50rem;
 }
 
 .loader:before,
@@ -225,23 +212,40 @@ label {
 
 @media only screen and (max-width: 768px) {
 	.filter-product {
-		width: 25%;
-		padding: 2rem;
-	}
-}
-
-@media only screen and (max-width: 560px) {
-	.filter-product {
 		display: none;
 	}
 
-	.product-search {
-		flex-direction: column;
+	.product-container {
+		width: 100%;
 	}
 
-	.show-products {
-		margin-left: 0rem;
-		font-size: 2rem;
-		text-align: center;
+	.product-search {
+		width: 85%;
+	}
+
+	.btn-filters {
+		display: block;
+		width: 9rem;
+		height: 4rem;
+		padding: 0 1rem;
+		margin-right: 1rem;
+		border: none;
+		font-size: 1.8rem;
+		color: var(--white-color);
+		background-color: var(--global-color);
+		border-radius: 0.5rem;
+		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 425px) {
+	.product-search {
+		width: 65%;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.product-search {
+		width: 75%;
 	}
 }

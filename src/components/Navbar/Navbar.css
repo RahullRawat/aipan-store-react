@@ -4,6 +4,10 @@
 	background-color: var(--global-color);
 	justify-content: space-around;
 	padding-top: 1.5rem;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	width: 100vw;
 }
 
 .nav-brand-title a {
@@ -61,24 +65,71 @@
 	left: 34px;
 }
 
+.mobile-sidebar {
+	position: fixed;
+	right: -60%;
+	top: 9%;
+	background-color: var(--global-color);
+	width: 50%;
+	height: 95vh;
+	z-index: 100;
+	transition: 0.8s all ease-in-out;
+	border-radius: 1rem 0 0 1rem;
+}
+
+.mobile-sidebar > ul > a > li {
+	color: var(--white-color);
+	font-size: 2rem;
+	margin-bottom: 2rem;
+	padding: 1rem;
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: 0.3s all ease-in;
+}
+
+.mobile-sidebar > ul a > li:hover {
+	font-size: 2.1rem;
+	font-weight: 800;
+	opacity: 0.9;
+}
+
+.fa-solid {
+	margin-right: 1rem;
+}
+
+.show-sidebar {
+	right: 0%;
+	top: 9%;
+	height: 93vh;
+	padding: 3rem 0 2rem 4rem;
+	transition: 0.8s all ease-in-out;
+	border-radius: 1rem 0 0 1rem;
+}
+
 @media only screen and (max-width: 768px) {
 	html {
 		font-size: 50%;
 	}
-}
 
-@media only screen and (max-width: 480px) {
 	.nav-bar {
 		justify-content: space-between;
 		padding: 1.3rem 3rem;
 	}
+
 	.nav-center,
 	.nav-links {
 		display: none;
 	}
 
 	.hamburger-icon {
+		font-size: 3rem;
 		display: block;
 		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.show-sidebar {
+		width: 60%;
 	}
 }
