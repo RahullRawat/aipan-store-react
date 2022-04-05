@@ -15,11 +15,7 @@ export const Navbar = () => {
 
 	const [mobileSidebar, setMobileSidebar] = useState(false);
 
-	const showSidebar = () => {
-		setMobileSidebar(!mobileSidebar);
-	};
-
-	const closeSidebar = () => {
+	const toggleSidebar = () => {
 		setMobileSidebar(!mobileSidebar);
 	};
 
@@ -76,7 +72,7 @@ export const Navbar = () => {
 					)}
 				</div>
 				<div className="hamburger-icon md-text">
-					<i className="fas fa-bars" onClick={showSidebar}></i>
+					<i className="fas fa-bars" onClick={toggleSidebar}></i>
 				</div>
 			</div>
 			<aside
@@ -86,22 +82,22 @@ export const Navbar = () => {
 			>
 				<ul>
 					<Link to="/">
-						<li onClick={closeSidebar}>Home</li>
+						<li onClick={toggleSidebar}>Home</li>
 					</Link>
 					<Link to="/product">
-						<li onClick={closeSidebar}>Products</li>
+						<li onClick={toggleSidebar}>Products</li>
 					</Link>
 					<Link to="/cart">
-						<li onClick={closeSidebar}>Cart</li>
+						<li onClick={toggleSidebar}>Cart</li>
 					</Link>
 					<Link to="/wishlist">
-						<li onClick={closeSidebar}>Wishlist</li>
+						<li onClick={toggleSidebar}>Wishlist</li>
 					</Link>
 					<Link to="/login">
-						<li onClick={closeSidebar}>Login</li>
+						<li onClick={toggleSidebar}>Login</li>
 					</Link>
 					<Link to="/signup">
-						<li onClick={closeSidebar}>Signup</li>
+						<li onClick={toggleSidebar}>Signup</li>
 					</Link>
 				</ul>
 			</aside>
