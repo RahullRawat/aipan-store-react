@@ -1,0 +1,25 @@
+.mobile-filters {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	.mobile-filters {
+		width: 85%;
+		margin: 0 auto;
+		text-align: left;
+		padding: 3rem 2rem;
+		box-shadow: 2px 2px 2px 2px lightgrey;
+		display: flex;
+		justify-content: space-around;
+		align-items: flex-start;
+		margin-top: 3rem;
+	}
+
+	.display-none {
+		display: none;
+	}
+
+	.slider {
+		width: 100%;
+	}
+}

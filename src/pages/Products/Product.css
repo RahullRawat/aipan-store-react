@@ -232,7 +232,9 @@ label {
 		border: none;
 		font-size: 1.8rem;
 		color: var(--white-color);
+		background-color: var(--global-color);
 		border-radius: 0.5rem;
+		cursor: pointer;
 	}
 }
 
