@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { authReducer } from "../reducer/AuthReducer";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext(null);
 
@@ -40,6 +41,7 @@ const AuthProvider = ({ children }) => {
 					},
 				});
 				navigate("/product");
+				toast.success("Successfully Logged In");
 			}
 		} catch (err) {
 			authDispatch({
@@ -69,6 +71,7 @@ const AuthProvider = ({ children }) => {
 					},
 				});
 				navigate("/");
+				toast.success("Your account has been created");
 			}
 		} catch (err) {
 			authDispatch({ type: "ERROR" });
@@ -79,6 +82,7 @@ const AuthProvider = ({ children }) => {
 		authDispatch({ type: "LOGOUT" });
 		localStorage.removeItem("token");
 		localStorage.removeItem("userData");
+		toast.success("Successfully Logged Out");
 	};
 
 	useEffect(() => {

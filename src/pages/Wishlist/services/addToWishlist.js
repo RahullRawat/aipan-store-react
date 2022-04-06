@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const addToWishlist = async (product, token, wishlistDispatch) => {
 	try {
@@ -11,7 +12,10 @@ const addToWishlist = async (product, token, wishlistDispatch) => {
 			type: "ADD_TO_WISHLIST",
 			payload: response.data.wishlist,
 		});
-	} catch (error) {}
+		toast.success("Item added to wishlist");
+	} catch (error) {
+		toast.error("Something went wrong. Please try again later !!");
+	}
 };
 
 export { addToWishlist };

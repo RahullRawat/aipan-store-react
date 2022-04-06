@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const removeFromCart = async (id, token, cartDispatch) => {
 	try {
@@ -8,8 +9,9 @@ const removeFromCart = async (id, token, cartDispatch) => {
 		if (response.status === 200) {
 			cartDispatch({ type: "REMOVE_FROM_CART", payload: response.data.cart });
 		}
+		toast.error("Item removed from cart");
 	} catch (error) {
-		console.log(error);
+		toast.error(error.response.data.errors[0]);
 	}
 };
 
