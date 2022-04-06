@@ -89,10 +89,22 @@ const filterBySort = (productList, sortBy) => {
 	return productList;
 };
 
+//filter by search
+const filterBySearch = (products, search) => {
+	if (search === "") {
+		return products;
+	} else {
+		return products.filter((product) =>
+			product.title.toLowerCase().includes(search.toLowerCase())
+		);
+	}
+};
+
 export {
 	filterBySlider,
 	filterByPriceRange,
 	filterByCategory,
 	filterByRating,
 	filterBySort,
+	filterBySearch,
 };
