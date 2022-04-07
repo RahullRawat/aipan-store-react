@@ -108,16 +108,20 @@ export const Product = () => {
 				{loader && <span class="loader"></span>}
 
 				<div className="featured-categories text-left">
-					{filterBySearchData.map((product) => {
-						return (
-							<ProductCard
-								key={product._id}
-								product={product}
-								addToCartHandler={addToCartHandler}
-								addToWishlistHandler={addToWishlistHandler}
-							/>
-						);
-					})}
+					{filterBySearchData.length === 0 ? (
+						<h1>No Products found</h1>
+					) : (
+						filterBySearchData.map((product) => {
+							return (
+								<ProductCard
+									key={product._id}
+									product={product}
+									addToCartHandler={addToCartHandler}
+									addToWishlistHandler={addToWishlistHandler}
+								/>
+							);
+						})
+					)}
 				</div>
 			</main>
 		</div>
