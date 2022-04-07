@@ -1,0 +1,11 @@
+.error404-container {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 15rem;
+	text-align: center;
+}
+
+.error404-container > a > button {
+	width: 10rem;
+	margin-top: 4rem;
+}
