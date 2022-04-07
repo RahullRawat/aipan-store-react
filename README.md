@@ -16,6 +16,7 @@ Aipan store is an e-commerce platform for selling handmade goods like paintings,
 
 ## Functionalities
 
+- Home Page
 - Products Listing Page
 - Filter products by
   1. Price Range Slider
