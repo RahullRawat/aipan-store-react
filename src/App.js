@@ -40,7 +40,7 @@ function App() {
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/wishlist" element={<Wishlist />} />
 				<Route path="/user" element={<User />} />
-				<Route path="/404" element={<Error404 />} />
+				<Route path="*" element={<Error404 />} />
 				<Route path="/mockman" element={<Mockman />} />
 			</Routes>
 		</div>
