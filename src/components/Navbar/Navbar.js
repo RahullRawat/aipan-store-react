@@ -63,11 +63,8 @@ export const Navbar = () => {
 					)}
 
 					{userData && (
-						<Link to="/">
-							<button className="btn-nav" onClick={signOut}>
-								LogOut
-							</button>
-							<span className="firstName">{userData.firstName}</span>
+						<Link to="/user">
+							<span className="firstName btn-na">{userData.firstName}</span>
 						</Link>
 					)}
 				</div>

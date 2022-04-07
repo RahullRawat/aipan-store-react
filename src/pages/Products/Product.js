@@ -12,6 +12,7 @@ import {
 	filterByCategory,
 	filterByRating,
 	filterBySort,
+	filterBySearch,
 } from "./utils/FilterFunctions";
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
@@ -23,6 +24,7 @@ export const Product = () => {
 	const [products, setProducts] = useState([]);
 	const [error, setError] = useState(false);
 	const [loader, setLoader] = useState(false);
+	const [search, setSearch] = useState("");
 
 	const { state } = useFilter();
 	const {
@@ -50,6 +52,7 @@ export const Product = () => {
 	);
 	const filterByRatingData = filterByRating(filterByCategoryData, rating);
 	const filterBySortData = filterBySort(filterByRatingData, sortBy);
+	const filterBySearchData = filterBySearch(filterBySortData, search);
 
 	useEffect(() => {
 		(async () => {
@@ -87,11 +90,15 @@ export const Product = () => {
 		}
 	};
 
+	const searchHandler = (e) => {
+		setSearch(e.target.value);
+	};
+
 	return (
 		<div className="product">
 			<Filter />
 			<main className="product-container">
-				<ProductSearch />
+				<ProductSearch searchHandler={searchHandler} />
 
 				{error && (
 					<h1 className="error-msg">
@@ -101,16 +108,20 @@ export const Product = () => {
 				{loader && <span class="loader"></span>}
 
 				<div className="featured-categories text-left">
-					{filterBySortData.map((product) => {
-						return (
-							<ProductCard
-								key={product._id}
-								product={product}
-								addToCartHandler={addToCartHandler}
-								addToWishlistHandler={addToWishlistHandler}
-							/>
-						);
-					})}
+					{filterBySearchData.length === 0 ? (
+						<h1>No Products found</h1>
+					) : (
+						filterBySearchData.map((product) => {
+							return (
+								<ProductCard
+									key={product._id}
+									product={product}
+									addToCartHandler={addToCartHandler}
+									addToWishlistHandler={addToWishlistHandler}
+								/>
+							);
+						})
+					)}
 				</div>
 			</main>
 		</div>

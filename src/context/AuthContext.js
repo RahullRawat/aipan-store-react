@@ -83,6 +83,7 @@ const AuthProvider = ({ children }) => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("userData");
 		toast.success("Successfully Logged Out");
+		navigate("/");
 	};
 
 	useEffect(() => {

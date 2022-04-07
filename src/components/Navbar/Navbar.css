@@ -28,9 +28,19 @@
 }
 
 .firstName {
-	font-size: 1.6rem;
+	font-size: 1.8rem;
 	color: var(--white-color);
 	margin-left: 1rem;
+	padding: 0.8rem 1rem;
+}
+
+.firstName:hover {
+	padding: 0.8rem 1rem;
+	color: var(--global-color);
+	background-color: var(--white-color);
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
 }
 
 .badge-container {

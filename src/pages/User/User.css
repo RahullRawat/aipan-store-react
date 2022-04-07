@@ -1,0 +1,26 @@
+.user-profile-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+	width: 35rem;
+	margin: auto;
+}
+
+.profile-details {
+	width: 35rem;
+}
+
+.username-container,
+.user-email-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid lightgray;
+	padding: 1rem;
+}
+
+.btn-logout {
+	border: 1px solid var(--global-color);
+}

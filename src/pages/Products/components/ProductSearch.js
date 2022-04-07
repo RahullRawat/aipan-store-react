@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MobileFilters } from "./MobileFilters/MobileFilters";
 
-export const ProductSearch = () => {
+export const ProductSearch = ({ searchHandler }) => {
 	const [mobileFilters, setMobileFilters] = useState(false);
 	const showMobileFIlters = () => {
 		setMobileFilters(!mobileFilters);
@@ -12,7 +12,11 @@ export const ProductSearch = () => {
 				<button className="btn-filters" onClick={showMobileFIlters}>
 					Filters
 				</button>
-				<input type="text" placeholder="Enter Product........" />
+				<input
+					type="text"
+					placeholder="Enter Product........"
+					onChange={(e) => searchHandler(e)}
+				/>
 				<i class="fa fa-search btn-search" aria-hidden="true"></i>
 			</div>
 			<MobileFilters mobileFilters={mobileFilters} />
