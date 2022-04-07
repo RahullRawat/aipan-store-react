@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar } from "./components/index";
+import { Navbar, RequireAuth } from "./components/index";
 import {
 	Home,
 	Product,
@@ -37,8 +37,22 @@ function App() {
 				<Route path="/product" element={<Product />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
-				<Route path="/cart" element={<Cart />} />
-				<Route path="/wishlist" element={<Wishlist />} />
+				<Route
+					path="/cart"
+					element={
+						<RequireAuth>
+							<Cart />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/wishlist"
+					element={
+						<RequireAuth>
+							<Wishlist />
+						</RequireAuth>
+					}
+				/>
 				<Route path="/user" element={<User />} />
 				<Route path="*" element={<Error404 />} />
 				<Route path="/mockman" element={<Mockman />} />
