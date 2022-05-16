@@ -8,7 +8,7 @@ export const PriceRangeFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="price"
+					name="price1"
 					id="price1"
 					checked={priceRange === "UNDER_600"}
 					onChange={() =>
@@ -20,7 +20,7 @@ export const PriceRangeFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="price"
+					name="price2"
 					id="price2"
 					checked={priceRange === "UNDER_1000"}
 					onChange={() =>
@@ -32,7 +32,7 @@ export const PriceRangeFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="price"
+					name="price3"
 					id="price3"
 					checked={priceRange === "UNDER_2000"}
 					onChange={() =>
@@ -44,7 +44,7 @@ export const PriceRangeFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="price"
+					name="price4"
 					id="price4"
 					checked={priceRange === "UNDER_4000"}
 					onChange={() =>

@@ -9,7 +9,7 @@ export const SortFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="sort"
+					name="low-to-high"
 					id="low-to-high"
 					checked={sortBy === "LOW_TO_HIGH"}
 					onChange={() => dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })}
@@ -20,7 +20,7 @@ export const SortFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="sort"
+					name="high-to-low"
 					id="high-to-low"
 					checked={sortBy === "HIGH_TO_LOW"}
 					onChange={() => dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })}

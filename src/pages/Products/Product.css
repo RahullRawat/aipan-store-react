@@ -134,6 +134,10 @@ label {
 	margin-top: 20rem;
 }
 
+.font-color {
+	color: var(--global-color);
+}
+
 .loader {
 	animation: rotate 1s infinite;
 	height: 50px;
