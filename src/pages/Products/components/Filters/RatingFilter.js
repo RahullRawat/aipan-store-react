@@ -9,7 +9,7 @@ export const RatingFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="rating"
+					name="rating4"
 					id="rating-4"
 					checked={rating === "4_STAR_&_ABOVE"}
 					onChange={() =>
@@ -22,7 +22,7 @@ export const RatingFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="rating"
+					name="rating3"
 					id="rating-3"
 					checked={rating === "3_STAR_&_ABOVE"}
 					onChange={() =>
@@ -35,7 +35,7 @@ export const RatingFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="rating"
+					name="rating2"
 					id="rating-2"
 					checked={rating === "2_STAR_&_ABOVE"}
 					onChange={() =>
@@ -48,7 +48,7 @@ export const RatingFilter = ({ state, dispatch }) => {
 			<div>
 				<input
 					type="radio"
-					name="rating"
+					name="rating1"
 					id="rating-1"
 					checked={rating === "1_STAR_&_ABOVE"}
 					onChange={() =>

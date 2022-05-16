@@ -107,6 +107,9 @@ export const Product = () => {
 				)}
 				{loader && <span class="loader"></span>}
 
+				<div className="md-text font-color">
+					Showing {filterBySearchData.length} products...
+				</div>
 				<div className="featured-categories text-left">
 					{filterBySearchData.length === 0 ? (
 						<h1>No Products found</h1>
