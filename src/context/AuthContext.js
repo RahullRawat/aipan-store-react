@@ -43,7 +43,6 @@ const AuthProvider = ({ children }) => {
 				});
 				navigate("/product");
 				toast.success("Successfully Logged In");
-				navigate(location?.state?.pathname || -1, { replace: true });
 			}
 		} catch (err) {
 			authDispatch({
