@@ -26,7 +26,7 @@ const CartProduct = () => {
 		removeFromCart(product._id, token, cartDispatch);
 	};
 	return (
-		<>
+		<div className="cart-wrapper">
 			{cartItems.map((item) => {
 				return (
 					<div className="card-horizontal" key={item._id}>
@@ -78,7 +78,7 @@ const CartProduct = () => {
 					</div>
 				);
 			})}
-		</>
+		</div>
 	);
 };
 
