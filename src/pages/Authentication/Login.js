@@ -6,6 +6,11 @@ import { useAuth } from "../../context/index";
 export const Login = () => {
 	const { email, password, error, authDispatch, logIn } = useAuth();
 
+	const guestLoginHandler = () => {
+		authDispatch({ type: "LOG-IN-EMAIL", payload: "adarshbalika@gmail.com" });
+		authDispatch({ type: "LOG-IN-PASSWORD", payload: "adarshBalika123" });
+	};
+
 	const logInHandler = (e) => {
 		e.preventDefault();
 		logIn();
@@ -49,6 +54,13 @@ export const Login = () => {
 					</Link>
 					<button type="submit" className="btn btn-login">
 						Login
+					</button>
+					<button
+						type="submit"
+						className="btn btn-guest-login"
+						onClick={guestLoginHandler}
+					>
+						Guest Login
 					</button>
 
 					<div className="no-account">
