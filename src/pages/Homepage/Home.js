@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { fetchProducts } from "../../services/fetchProducts";
 import { CategoriesCard } from "../../components/CategoriesCard/CategoriesCard";
+import { addToCart } from "../Cart/services/addToCart";
+import { addToWishlist } from "../Wishlist/services/addToWishlist";
+import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
+import { useWishlist } from "../../context";
+import { ProductCard } from "../Products/components/ProductCard";
 import "./Home.css";
 
 export const Home = () => {
+	const [products, setProducts] = useState([]);
+	const [disabled, setDisabled] = useState(false);
+	const [error, setError] = useState(false);
+	const [loader, setLoader] = useState(false);
+
+	const { cartDispatch } = useCart();
+	const { wishlistDispatch } = useWishlist();
+	const { token } = useAuth();
+
+	useEffect(() => {
+		fetchProducts(setLoader, setError, setProducts);
+	}, []);
+
+	const random = products.slice(9, 13);
+
+	const addToCartHandler = (product) => {
+		addToCart(product, cartDispatch, token, setDisabled);
+	};
+
+	const addToWishlistHandler = (product) => {
+		addToWishlist(product, token, wishlistDispatch, setDisabled);
+	};
+
 	return (
 		<div>
 			<div className="hero-container">
@@ -13,84 +44,25 @@ export const Home = () => {
 				</Link>
 			</div>
 			<CategoriesCard />
+
 			<section>
 				<h1 className="section-title text-center md-text">
 					Best <span className="highlight-text md-text">Selling</span>
 				</h1>
 
 				<div className="featured-categories">
-					<div className="featured-items">
-						<Link to="/product">
-							<img
-								src="https://aipan-store.netlify.app/assets/paintings/sun-painting.jpg"
-								alt="paintings"
-							/>
-						</Link>
-
-						<div className="price-container text-center">
-							<p className="item-name">Sun Painting</p>
-							<span className="currency">Rs 999.00</span>
-						</div>
-						<Link to="/product">
-							<button className="btn btn-primary btn-category">
-								Add to cart
-							</button>
-						</Link>
-					</div>
-
-					<div className="featured-items">
-						<Link to="/product">
-							<img
-								src="https://aipan-store.netlify.app/assets/diary/diary3.jpg"
-								alt="diary"
-							/>
-						</Link>
-						<div className="price-container text-center">
-							<p className="item-name">Handmade Diary</p>
-							<span className="currency">Rs 560.00</span>
-						</div>
-						<Link to="/product">
-							<button className="btn btn-primary btn-category">
-								Add to cart
-							</button>
-						</Link>
-					</div>
-
-					<div className="featured-items">
-						<Link to="/product">
-							<img
-								src="https://aipan-store.netlify.app/assets/paintings/lord-budha-wall-painting.jpg"
-								alt="paintings"
-							/>
-						</Link>
-						<div className="price-container text-center">
-							<p className="item-name">Lord Buddha Wall Painting</p>
-							<span className="currency">Rs 999.00</span>
-						</div>
-						<Link to="/product">
-							<button className="btn btn-primary btn-category">
-								Add to cart
-							</button>
-						</Link>
-					</div>
-
-					<div className="featured-items">
-						<Link to="/product">
-							<img
-								src="https://aipan-store.netlify.app/assets/coaster/coaster2.jpg"
-								alt="coaster"
-							/>
-						</Link>
-						<div className="price-container text-center">
-							<p className="item-name">Handcrafted tea coaster</p>
-							<span className="currency">Rs 740.00</span>
-						</div>
-						<Link to="/product">
-							<button className="btn btn-primary btn-category">
-								Add to cart
-							</button>
-						</Link>
-					</div>
+					{random.map((product) => {
+						return (
+							<div key={product._id}>
+								<ProductCard
+									product={product}
+									addToCartHandler={addToCartHandler}
+									addToWishlistHandler={addToWishlistHandler}
+									disabled={disabled}
+								/>
+							</div>
+						);
+					})}
 				</div>
 			</section>
 		</div>
