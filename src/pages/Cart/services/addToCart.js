@@ -1,7 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const addToCart = async (product, cartDispatch, token) => {
+const addToCart = async (product, cartDispatch, token, setDisabled) => {
+	setDisabled((prev) => !prev);
 	try {
 		const response = await axios.post(
 			"/api/user/cart",
@@ -16,6 +17,8 @@ const addToCart = async (product, cartDispatch, token) => {
 		}
 	} catch (error) {
 		toast.error(error.response.data.errors[0]);
+	} finally {
+		setDisabled((prev) => !prev);
 	}
 };
 
