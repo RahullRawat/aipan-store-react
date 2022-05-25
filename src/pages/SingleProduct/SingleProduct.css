@@ -1,0 +1,42 @@
+.horizontal-product-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90vh;
+	width: 100%;
+}
+
+.horizontal-product-card > img {
+	height: 40%;
+	object-fit: contain;
+}
+
+.horizontal-product-details {
+	border: 1px solid red;
+	width: 30%;
+	height: 40%;
+	padding: 2.5rem;
+}
+
+.horizontal-product-details > h3 {
+	color: var(--global-color);
+}
+
+.horizontal-product-details > h6 {
+	font-size: 1.7rem;
+	margin: 1.5rem 0;
+	color: var(--currency-color);
+}
+
+.horizontal-product-details > p {
+	font-size: 1.7rem;
+}
+
+.horizontal-product-details > .btn {
+	width: fit-content;
+	margin-right: 1rem;
+}
+
+.horizontal-product-details > .btn:hover {
+	border: 1px solid var(--global-color);
+}
