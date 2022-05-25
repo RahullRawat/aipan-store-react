@@ -10,9 +10,14 @@ h1 {
 	gap: 5rem;
 }
 
+.cart-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
 .card-horizontal {
 	margin-top: 4rem;
-	width: 70%;
+	width: 100%;
 	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);
 }
 
@@ -88,7 +93,7 @@ h1 {
 }
 
 .price-details-container {
-	width: 45%;
+	width: 35%;
 	padding: 2rem;
 	margin-top: 4rem;
 	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const addToWishlist = async (product, token, wishlistDispatch) => {
+const addToWishlist = async (product, token, wishlistDispatch, setDisabled) => {
+	setDisabled((prev) => !prev);
 	try {
 		const response = await axios.post(
 			"/api/user/wishlist",
@@ -15,6 +16,8 @@ const addToWishlist = async (product, token, wishlistDispatch) => {
 		toast.success("Item added to wishlist");
 	} catch (error) {
 		toast.error("Something went wrong. Please try again later !!");
+	} finally {
+		setDisabled((prev) => !prev);
 	}
 };
 

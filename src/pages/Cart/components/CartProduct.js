@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../context";
 import { removeFromCart } from "../services/removeFromCart";
@@ -12,6 +12,7 @@ const CartProduct = () => {
 	const { cartItems } = cartState;
 	const { wishlistDispatch } = useWishlist();
 	const { token } = useAuth();
+	const [disabled, setDisabled] = useState(false);
 
 	const removeFromCartHandler = (_id) => {
 		removeFromCart(_id, token, cartDispatch);
@@ -22,11 +23,11 @@ const CartProduct = () => {
 	};
 
 	const moveToWishlistHandler = (product) => {
-		addToWishlist(product, token, wishlistDispatch);
+		addToWishlist(product, token, wishlistDispatch, setDisabled);
 		removeFromCart(product._id, token, cartDispatch);
 	};
 	return (
-		<>
+		<div className="cart-wrapper">
 			{cartItems.map((item) => {
 				return (
 					<div className="card-horizontal" key={item._id}>
@@ -78,7 +79,7 @@ const CartProduct = () => {
 					</div>
 				);
 			})}
-		</>
+		</div>
 	);
 };
 
