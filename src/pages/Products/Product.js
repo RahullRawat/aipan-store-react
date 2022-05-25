@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Product.css";
+import { fetchProducts } from "../../services/fetchProducts";
 import { Filter } from "./components/Filter";
 import { ProductSearch } from "./components/ProductSearch";
 import { ProductCard } from "./components/ProductCard";
@@ -25,6 +26,7 @@ export const Product = () => {
 	const [error, setError] = useState(false);
 	const [loader, setLoader] = useState(false);
 	const [search, setSearch] = useState("");
+	const [disabled, setDisabled] = useState(false);
 
 	const { state } = useFilter();
 	const {
@@ -55,17 +57,7 @@ export const Product = () => {
 	const filterBySearchData = filterBySearch(filterBySortData, search);
 
 	useEffect(() => {
-		(async () => {
-			setLoader(true);
-			try {
-				const response = await axios.get("/api/products");
-				setLoader(false);
-				setProducts(response.data.products);
-			} catch (error) {
-				setError(true);
-				setLoader(false);
-			}
-		})();
+		fetchProducts(setLoader, setError, setProducts);
 	}, []);
 
 	const { token } = useAuth();
@@ -74,7 +66,7 @@ export const Product = () => {
 
 	const addToCartHandler = (product) => {
 		if (token) {
-			addToCart(product, cartDispatch, token);
+			addToCart(product, cartDispatch, token, setDisabled);
 		} else {
 			navigate("/login");
 		}
@@ -84,7 +76,7 @@ export const Product = () => {
 
 	const addToWishlistHandler = (product) => {
 		if (token) {
-			addToWishlist(product, token, wishlistDispatch);
+			addToWishlist(product, token, wishlistDispatch, setDisabled);
 		} else {
 			navigate("/login");
 		}
@@ -99,7 +91,9 @@ export const Product = () => {
 			<Filter />
 			<main className="product-container">
 				<ProductSearch searchHandler={searchHandler} />
-
+				<div className="md-text font-color">
+					Showing {filterBySearchData.length} products...
+				</div>
 				{error && (
 					<h1 className="error-msg">
 						Oops something went wrong, Please try again later !!!
@@ -107,12 +101,9 @@ export const Product = () => {
 				)}
 				{loader && <span class="loader"></span>}
 
-				<div className="md-text font-color">
-					Showing {filterBySearchData.length} products...
-				</div>
 				<div className="featured-categories text-left">
 					{filterBySearchData.length === 0 ? (
-						<h1>No Products found</h1>
+						<h1 className="mt-4">No Products found</h1>
 					) : (
 						filterBySearchData.map((product) => {
 							return (
@@ -121,6 +112,8 @@ export const Product = () => {
 									product={product}
 									addToCartHandler={addToCartHandler}
 									addToWishlistHandler={addToWishlistHandler}
+									disabled={disabled}
+									setDisabled={setDisabled}
 								/>
 							);
 						})

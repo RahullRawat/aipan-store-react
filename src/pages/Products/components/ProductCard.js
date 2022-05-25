@@ -10,6 +10,7 @@ export const ProductCard = ({
 	product,
 	addToCartHandler,
 	addToWishlistHandler,
+	disabled,
 }) => {
 	const navigate = useNavigate();
 	const { cartState } = useCart();
@@ -36,21 +37,22 @@ export const ProductCard = ({
 	};
 
 	return (
-		<div className="featured-items">
-			<Link to="#">
+		<div className="featured-items" key={product._id}>
+			<Link to={`/product/${product._id}`}>
 				<img src={product.img} alt="paintings" />
 			</Link>
 
 			{itemInWishlist ? (
-				<i
-					className="far fa-heart fw-900"
-					onClick={() => removeFromWishlistHandler(product._id)}
-				></i>
+				<button onClick={() => removeFromWishlistHandler(product._id)}>
+					<i className="fa fa-heart"></i>
+				</button>
 			) : (
-				<i
-					className="far fa-heart"
+				<button
 					onClick={() => addToWishlistHandler(product)}
-				></i>
+					disabled={disabled}
+				>
+					<i className="far fa-heart"></i>
+				</button>
 			)}
 
 			<div className="price-container">
@@ -68,6 +70,7 @@ export const ProductCard = ({
 				onClick={
 					itemInCart ? () => navigate("/cart") : () => addToCartHandler(product)
 				}
+				disabled={disabled}
 			>
 				{itemInCart ? "Go to cart" : "Add to cart"}
 			</button>
