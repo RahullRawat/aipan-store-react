@@ -13,7 +13,7 @@
 
 .horizontal-product-details {
 	border: 1px solid red;
-	width: 30%;
+	width: 40%;
 	height: 40%;
 	padding: 2.5rem;
 }
@@ -39,4 +39,27 @@
 
 .horizontal-product-details > .btn:hover {
 	border: 1px solid var(--global-color);
+}
+
+@media screen and (max-width: 1024px) {
+	.horizontal-product-details {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.horizontal-product-card {
+		flex-direction: column;
+		margin-top: 4rem;
+	}
+
+	.horizontal-product-details {
+		width: 36%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.horizontal-product-details {
+		width: 60%;
+	}
 }

@@ -65,9 +65,8 @@ export const SingleProduct = () => {
 						<h6>Price : Rs {findItem.price}</h6>
 						<p>
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero aut
-							velit voluptates nam voluptatum consectetur! Odio nobis expedita
-							recusandae aliquid earum quia omnis ducimus temporibus. Harum
-							voluptatum soluta repudiandae velit.
+							velit voluarum quia omnis ducimus temporibus. Harum voluptatum
+							soluta repudiandae velit.
 						</p>
 						<button
 							className="btn btn-primary"

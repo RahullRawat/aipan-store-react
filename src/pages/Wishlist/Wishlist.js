@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Wishlist.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context";
@@ -12,13 +12,14 @@ export const Wishlist = () => {
 	const { wishlistState, wishlistDispatch } = useWishlist();
 	const { wishlistItems } = wishlistState;
 	const { cartState, cartDispatch } = useCart();
+	const [disabled, setDisabled] = useState(false);
 
 	const removeFromWishlistHandler = (id) => {
 		removeFromWishlist(id, token, wishlistDispatch);
 	};
 
 	const moveToCartHandler = (product) => {
-		moveToCart(product, token, cartState, cartDispatch);
+		moveToCart(product, token, cartState, cartDispatch, setDisabled);
 		removeFromWishlist(product._id, token, wishlistDispatch);
 	};
 
