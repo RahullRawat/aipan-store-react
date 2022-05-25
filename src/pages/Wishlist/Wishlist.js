@@ -37,10 +37,9 @@ export const Wishlist = () => {
 										<img src={item.img} alt="diary" />
 									</Link>
 
-									<i
-										className="far fa-heart fw-900"
-										onClick={() => removeFromWishlistHandler(item._id)}
-									></i>
+									<button onClick={() => removeFromWishlistHandler(item._id)}>
+										<i className="fa fa-heart"></i>
+									</button>
 
 									<div className="price-container text-center">
 										<p className="item-name">{item.title}</p>

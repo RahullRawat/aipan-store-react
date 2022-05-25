@@ -11,7 +11,7 @@ export const User = () => {
 					<h5>Name - </h5>
 					{userData && (
 						<h6 className="username">
-							{userData.firstName + userData.lastName}
+							{userData.firstName + " " + userData.lastName}
 						</h6>
 					)}
 				</div>
