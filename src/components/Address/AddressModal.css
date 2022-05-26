@@ -1,0 +1,17 @@
+.address-modal {
+	background-color: var(--white-color);
+	padding: 2rem;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+.address-modal > button {
+	border-width: 0;
+	padding: 1rem;
+	margin: 1rem;
+	cursor: pointer;
+	border-radius: 0.5rem;
+	background-color: lightgray;
+	font-size: 1.6rem;
+	font-weight: 700;
+}
