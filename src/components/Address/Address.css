@@ -1,0 +1,41 @@
+.address-container {
+	position: relative;
+}
+
+.address-container > h5 {
+	margin-bottom: 1rem;
+}
+
+.address-container > p {
+	font-size: 1.6rem;
+	font-weight: 600;
+	margin-top: 0.3rem;
+}
+
+.address-btn-container {
+	margin: 2rem 0;
+}
+
+.address-btn-container > .btn {
+	width: fit-content;
+	padding: 0.8rem;
+	margin-right: 1rem;
+}
+
+.address-btn-container > .btn:hover {
+	border: 1px solid var(--global-color);
+}
+
+.address-container > button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 1.6rem;
+	text-decoration: underline;
+}
+
+.open-modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
