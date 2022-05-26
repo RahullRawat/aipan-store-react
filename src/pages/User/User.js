@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../../context";
+import { Address, Orders, Profile } from "../../components";
 import "./User.css";
 
 export const User = () => {
+	const [activeTab, setActiveTab] = useState("profile");
 	const { userData, signOut } = useAuth();
+
 	return (
 		<section className="user-profile-container ">
-			<div className="profile-details">
-				<div className="username-container">
-					<h5>Name - </h5>
-					{userData && (
-						<h6 className="username">
-							{userData.firstName + " " + userData.lastName}
-						</h6>
-					)}
-				</div>
-				<div className="user-email-container">
-					<h5>Email - </h5>
-					{userData && <h6 className="email">{userData.email}</h6>}
-				</div>
+			<div className="user-details">
+				<button
+					className={
+						activeTab === "profile" ? "active-tab tab-button" : "tab-button"
+					}
+					onClick={() => setActiveTab("profile")}
+				>
+					Profile
+				</button>
+				<button
+					className={
+						activeTab === "address" ? "active-tab tab-button" : "tab-button"
+					}
+					onClick={() => setActiveTab("address")}
+				>
+					Address
+				</button>
+				<button
+					className={
+						activeTab === "orders" ? "active-tab tab-button" : "tab-button"
+					}
+					onClick={() => setActiveTab("orders")}
+				>
+					Orders
+				</button>
+				{activeTab === "profile" ? (
+					<Profile userData={userData} signOut={signOut} />
+				) : activeTab === "address" ? (
+					<Address />
+				) : (
+					<Orders />
+				)}
 			</div>
-			<button className="btn-primary btn btn-logout" onClick={signOut}>
-				LogOut
-			</button>
 		</section>
 	);
 };
