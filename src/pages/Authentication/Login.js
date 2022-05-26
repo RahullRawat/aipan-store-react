@@ -7,8 +7,8 @@ export const Login = () => {
 	const { email, password, error, authDispatch, logIn } = useAuth();
 
 	const guestLoginHandler = () => {
-		authDispatch({ type: "LOG-IN-EMAIL", payload: "adarshbalika@gmail.com" });
-		authDispatch({ type: "LOG-IN-PASSWORD", payload: "adarshBalika123" });
+		authDispatch({ type: "LOG-IN-EMAIL", payload: "stevesmith@gmail.com" });
+		authDispatch({ type: "LOG-IN-PASSWORD", payload: "stevesmith" });
 	};
 
 	const logInHandler = (e) => {
