@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useReducer, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authReducer } from "../reducer/AuthReducer";
 import { toast } from "react-toastify";
 
@@ -13,13 +13,14 @@ const initialState = {
 	error: false,
 	userData: "",
 	token: "",
+	orders: [],
 };
 
 const AuthProvider = ({ children }) => {
 	const [authState, authDispatch] = useReducer(authReducer, initialState);
-	const { firstName, email, password, userData, token, error } = authState;
+	const { firstName, email, password, userData, token, error, orders } =
+		authState;
 	const navigate = useNavigate();
-	const location = useLocation();
 
 	const logIn = async () => {
 		try {
@@ -111,6 +112,7 @@ const AuthProvider = ({ children }) => {
 				logIn,
 				signUp,
 				signOut,
+				orders,
 			}}
 		>
 			{children}

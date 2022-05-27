@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context";
 import { Address, Orders, Profile } from "../../components";
 import "./User.css";
 
 export const User = () => {
-	const [activeTab, setActiveTab] = useState("profile");
+	const navigate = useNavigate();
+	const location = useLocation();
 	const { userData, signOut } = useAuth();
 
 	return (
@@ -12,31 +14,37 @@ export const User = () => {
 			<div className="user-details">
 				<button
 					className={
-						activeTab === "profile" ? "active-tab tab-button" : "tab-button"
+						location.pathname === "/user"
+							? "active-tab tab-button"
+							: "tab-button"
 					}
-					onClick={() => setActiveTab("profile")}
+					onClick={() => navigate("/user")}
 				>
 					Profile
 				</button>
 				<button
 					className={
-						activeTab === "address" ? "active-tab tab-button" : "tab-button"
+						location.pathname === "/user/address"
+							? "active-tab tab-button"
+							: "tab-button"
 					}
-					onClick={() => setActiveTab("address")}
+					onClick={() => navigate("/user/address")}
 				>
 					Address
 				</button>
 				<button
 					className={
-						activeTab === "orders" ? "active-tab tab-button" : "tab-button"
+						location.pathname === "/user/orders"
+							? "active-tab tab-button"
+							: "tab-button"
 					}
-					onClick={() => setActiveTab("orders")}
+					onClick={() => navigate("/user/orders")}
 				>
 					Orders
 				</button>
-				{activeTab === "profile" ? (
+				{location.pathname === "/user" ? (
 					<Profile userData={userData} signOut={signOut} />
-				) : activeTab === "address" ? (
+				) : location.pathname === "/user/address" ? (
 					<Address />
 				) : (
 					<Orders />
