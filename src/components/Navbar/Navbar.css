@@ -78,7 +78,6 @@
 .mobile-sidebar {
 	position: fixed;
 	right: -60%;
-	top: 9%;
 	background-color: var(--global-color);
 	width: 50%;
 	height: 95vh;
@@ -109,7 +108,6 @@
 
 .show-sidebar {
 	right: 0%;
-	top: 9%;
 	height: 93vh;
 	padding: 3rem 0 2rem 4rem;
 	transition: 0.8s all ease-in-out;
