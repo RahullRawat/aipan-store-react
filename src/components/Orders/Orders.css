@@ -1,0 +1,18 @@
+.orders > h6 {
+	font-size: 1.7rem;
+	margin: 1rem 0;
+	color: var(--global-color);
+}
+
+.orders p {
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+.orders > p > span {
+	font-size: 1.6rem;
+}
+
+.orders > h6 > span {
+	font-size: 1.6rem;
+}
