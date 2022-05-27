@@ -41,6 +41,7 @@
 .checkout-address {
 	padding: 1rem;
 	border: 1px solid gray;
+	display: flex;
 }
 
 .checkout-address-modal {
