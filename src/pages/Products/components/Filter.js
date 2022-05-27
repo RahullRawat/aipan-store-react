@@ -17,6 +17,9 @@ export const Filter = () => {
 		<aside className="filter-product">
 			<div className="filter-heading">
 				<h1>Filters</h1>
+				<button className="btn-link" onClick={resetHandler}>
+					Clear Filters
+				</button>
 			</div>
 
 			<SliderFilter state={state} dispatch={dispatch} />
@@ -24,10 +27,6 @@ export const Filter = () => {
 			<CategoryFilter state={state} dispatch={dispatch} />
 			<RatingFilter state={state} dispatch={dispatch} />
 			<SortFilter state={state} dispatch={dispatch} />
-
-			<button className="btn btn-link" onClick={resetHandler}>
-				Clear Filters
-			</button>
 		</aside>
 	);
 };

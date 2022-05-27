@@ -12,9 +12,24 @@
 	box-shadow: 0 1px 8px rgb(0 0 0 / 0.2);
 }
 
+.filter-heading {
+	display: flex;
+	align-items: center;
+}
+
 .filter-heading > h1 {
 	font-size: 1.8rem;
 	color: var(--global-color);
+	margin-right: 5rem;
+}
+
+.filter-heading > .btn-link {
+	background-color: transparent;
+	border: none;
+	text-decoration: underline;
+	color: var(--global-color);
+	cursor: pointer;
+	font-size: 1.6rem;
 }
 
 .filters > h2 {
