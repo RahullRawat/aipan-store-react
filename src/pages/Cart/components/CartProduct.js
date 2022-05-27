@@ -46,7 +46,7 @@ const CartProduct = () => {
 												: updateQuantityHandler(item._id, "decrement");
 										}}
 									>
-										-
+										{item.qty === 1 ? <i class="fa fa-trash-o"></i> : "-"}
 									</button>
 									<input
 										type="text"
