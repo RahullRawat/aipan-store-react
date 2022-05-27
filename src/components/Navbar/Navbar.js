@@ -90,6 +90,9 @@ export const Navbar = () => {
 					<Link to="/wishlist">
 						<li onClick={toggleSidebar}>Wishlist</li>
 					</Link>
+					<Link to="/user">
+						<li onClick={toggleSidebar}>User</li>
+					</Link>
 					<Link to="/login">
 						<li onClick={toggleSidebar}>Login</li>
 					</Link>

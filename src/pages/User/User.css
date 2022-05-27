@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 55rem;
+	width: 40%;
 	margin: auto;
 	margin-top: 15rem;
 }
@@ -51,4 +51,10 @@
 .active-tab {
 	color: var(--white-color);
 	background-color: var(--global-color);
+}
+
+@media screen and (max-width: 768px) {
+	.user-profile-container {
+		width: 90%;
+	}
 }
