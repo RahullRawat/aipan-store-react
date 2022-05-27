@@ -5,6 +5,7 @@ import { fetchProducts } from "../../services/fetchProducts";
 import { CategoriesCard } from "../../components/CategoriesCard/CategoriesCard";
 import { addToCart } from "../Cart/services/addToCart";
 import { addToWishlist } from "../Wishlist/services/addToWishlist";
+
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
 import { useWishlist } from "../../context";
@@ -18,6 +19,7 @@ export const Home = () => {
 	const [loader, setLoader] = useState(false);
 
 	const { cartDispatch } = useCart();
+
 	const { wishlistDispatch } = useWishlist();
 	const { token } = useAuth();
 

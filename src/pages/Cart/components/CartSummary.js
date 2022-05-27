@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CartSummary = ({ cartState }) => {
 	const { cartItems } = cartState;
@@ -31,7 +32,9 @@ const CartSummary = ({ cartState }) => {
 
 			<hr />
 			<p className="text-center">You will save Rs 99 on this order.</p>
-			<button className="btn btn-primary place-order">Place Order</button>
+			<Link to="/checkout">
+				<button className="btn btn-primary place-order">Place Order</button>
+			</Link>
 		</div>
 	);
 };

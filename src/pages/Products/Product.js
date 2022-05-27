@@ -18,8 +18,10 @@ import {
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
 import { useWishlist } from "../../context/WishlistContext";
+import { useAddress } from "../../context/AddressContext";
 import { addToCart } from "../../pages/Cart/services/addToCart";
 import { addToWishlist } from "../Wishlist/services/addToWishlist";
+import { getAddress } from "../../services/getAddress";
 
 export const Product = () => {
 	const [products, setProducts] = useState([]);
@@ -28,6 +30,7 @@ export const Product = () => {
 	const [search, setSearch] = useState("");
 	const [disabled, setDisabled] = useState(false);
 
+	const { addressDispatch } = useAddress();
 	const { state } = useFilter();
 	const {
 		sortBy,
@@ -58,6 +61,10 @@ export const Product = () => {
 
 	useEffect(() => {
 		fetchProducts(setLoader, setError, setProducts);
+	}, []);
+
+	useEffect(() => {
+		getAddress(token, addressDispatch);
 	}, []);
 
 	const { token } = useAuth();

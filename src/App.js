@@ -10,6 +10,7 @@ import {
 	User,
 	Error404,
 	SingleProduct,
+	Checkout,
 } from "./pages/index";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -38,6 +39,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/product/:id" element={<SingleProduct />} />
+				<Route path="/checkout" element={<Checkout />} />
 				<Route
 					path="/cart"
 					element={
