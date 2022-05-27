@@ -49,6 +49,7 @@ const authReducer = (state, action) => {
 				...state,
 				userData: null,
 				token: null,
+				orders: [],
 			};
 
 		case "LOAD-USER-DATA":
@@ -62,6 +63,12 @@ const authReducer = (state, action) => {
 			return {
 				...state,
 				error: !state.error,
+			};
+
+		case "ADD_ORDER":
+			return {
+				...state,
+				orders: action.payload,
 			};
 
 		default:

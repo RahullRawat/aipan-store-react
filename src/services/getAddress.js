@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getAddress = async (token, addressDispatch) => {
 	try {
-		const response = await axios.get("api/user/address", {
+		const response = await axios.get("/api/user/address", {
 			headers: { authorization: token },
 		});
 		if (response.status === 200) {

@@ -17,6 +17,17 @@ const cartReducer = (state, action) => {
 				...state,
 				cartItems: action.payload,
 			};
+
+		case "RESET":
+			return {
+				...state,
+				cartItems: [],
+			};
+
+		default:
+			return {
+				state,
+			};
 	}
 };
 

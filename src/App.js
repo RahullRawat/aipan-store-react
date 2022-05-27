@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, RequireAuth } from "./components/index";
+import { Navbar, RequireAuth, Address, Orders } from "./components/index";
 import {
 	Home,
 	Product,
@@ -56,7 +56,17 @@ function App() {
 						</RequireAuth>
 					}
 				/>
-				<Route path="/user" element={<User />} />
+				<Route
+					path="/user"
+					element={
+						<RequireAuth>
+							<User />
+						</RequireAuth>
+					}
+				>
+					<Route path="address" element={<Address />} />
+					<Route path="orders" element={<Orders />} />
+				</Route>
 				<Route path="*" element={<Error404 />} />
 			</Routes>
 		</div>
