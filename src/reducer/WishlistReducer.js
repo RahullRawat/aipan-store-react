@@ -11,6 +11,17 @@ const wishlistReducer = (state, action) => {
 				...state,
 				wishlistItems: action.payload,
 			};
+
+		case "RESET":
+			return {
+				...state,
+				wishlistItems: [],
+			};
+
+		default:
+			return {
+				state,
+			};
 	}
 };
 
