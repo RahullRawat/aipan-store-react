@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MobileFilters } from "./MobileFilters/MobileFilters";
 
-export const ProductSearch = ({ searchHandler }) => {
+export const ProductSearch = ({ searchHandler, optimizedFunc }) => {
 	const [mobileFilters, setMobileFilters] = useState(false);
 	const showMobileFIlters = () => {
 		setMobileFilters(!mobileFilters);
@@ -15,7 +15,7 @@ export const ProductSearch = ({ searchHandler }) => {
 				<input
 					type="text"
 					placeholder="Enter Product........"
-					onChange={(e) => searchHandler(e)}
+					onChange={(e) => optimizedFunc(e.target.value)}
 				/>
 				<i class="fa fa-search btn-search" aria-hidden="true"></i>
 			</div>
