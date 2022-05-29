@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Product.css";
@@ -89,15 +89,31 @@ export const Product = () => {
 		}
 	};
 
-	const searchHandler = (e) => {
-		setSearch(e.target.value);
+	const searchHandler = (value) => {
+		setSearch(value);
 	};
+
+	const debounce = (fn) => {
+		let timerId;
+		return function () {
+			let context = this;
+			clearTimeout(timerId);
+			timerId = setTimeout(() => {
+				fn.apply(context, arguments);
+			}, 500);
+		};
+	};
+
+	const optimizedFunc = useCallback(debounce(searchHandler), []);
 
 	return (
 		<div className="product">
 			<Filter />
 			<main className="product-container">
-				<ProductSearch searchHandler={searchHandler} />
+				<ProductSearch
+					searchHandler={searchHandler}
+					optimizedFunc={optimizedFunc}
+				/>
 				<div className="md-text font-color">
 					Showing {filterBySearchData.length} products...
 				</div>
