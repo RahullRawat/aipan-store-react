@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useAuth } from "../../context/index";
 
 export const Signup = () => {
@@ -7,8 +8,16 @@ export const Signup = () => {
 
 	const signUpHandler = (e) => {
 		e.preventDefault();
-		signUp();
+		if (firstName && email && password) {
+			signUp();
+		} else {
+			toast.warning("Please fill all the fields");
+		}
 	};
+
+	useEffect(() => {
+		document.title = "Aipan Store | Signup";
+	}, []);
 
 	return (
 		<section className="login-container">
@@ -30,7 +39,6 @@ export const Signup = () => {
 						onChange={(e) =>
 							authDispatch({ type: "NAME", payload: e.target.value })
 						}
-						required
 					/>
 
 					<label htmlFor="email">Email </label>
@@ -43,7 +51,6 @@ export const Signup = () => {
 						onChange={(e) =>
 							authDispatch({ type: "SIGN-UP-EMAIL", payload: e.target.value })
 						}
-						required
 					/>
 
 					<label htmlFor="password">Password </label>
@@ -59,15 +66,7 @@ export const Signup = () => {
 								payload: e.target.value,
 							})
 						}
-						required
 					/>
-
-					<div className="term-condition">
-						<input id="term-condition" type="checkbox" />
-						<label htmlFor="term-condition">
-							I accept all terms & conditions
-						</label>
-					</div>
 
 					<button type="submit" className="btn btn-login">
 						Signup

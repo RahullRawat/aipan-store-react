@@ -13,7 +13,7 @@ export const Orders = () => {
 	return (
 		<div className="orders-container">
 			<h5 className="text-center">My orders</h5>
-			{orders ? (
+			{orders.length > 0 ? (
 				orders.map((item) => {
 					return (
 						<div className="orders">

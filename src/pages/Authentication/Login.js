@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Authentication.css";
 import { useAuth } from "../../context/index";
+import { toast } from "react-toastify";
 
 export const Login = () => {
 	const { email, password, error, authDispatch, logIn } = useAuth();
 
 	const guestLoginHandler = () => {
-		authDispatch({ type: "LOG-IN-EMAIL", payload: "stevesmith@gmail.com" });
-		authDispatch({ type: "LOG-IN-PASSWORD", payload: "stevesmith" });
+		authDispatch({ type: "LOG-IN-EMAIL", payload: "rahulrawat@gmail.com" });
+		authDispatch({ type: "LOG-IN-PASSWORD", payload: "rahulrawat" });
 	};
 
 	const logInHandler = (e) => {
 		e.preventDefault();
-		logIn();
+		if (email && password) {
+			logIn();
+		} else {
+			toast.warning("Please fill all fields");
+		}
 	};
+
+	useEffect(() => {
+		document.title = "Aipan Store | Login";
+	}, []);
 	return (
 		<section className="login-container">
 			<div className="login">
@@ -35,7 +44,6 @@ export const Login = () => {
 						onChange={(e) =>
 							authDispatch({ type: "LOG-IN-EMAIL", payload: e.target.value })
 						}
-						required
 					/>
 
 					<label htmlFor="password">Password </label>
@@ -47,11 +55,8 @@ export const Login = () => {
 						onChange={(e) =>
 							authDispatch({ type: "LOG-IN-PASSWORD", payload: e.target.value })
 						}
-						required
 					/>
-					<Link to="#" className="forgot-password">
-						Forgot Your Password ?
-					</Link>
+
 					<button type="submit" className="btn btn-login">
 						Login
 					</button>
