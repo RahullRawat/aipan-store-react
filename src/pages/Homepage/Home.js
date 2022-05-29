@@ -27,6 +27,10 @@ export const Home = () => {
 		fetchProducts(setLoader, setError, setProducts);
 	}, []);
 
+	useEffect(() => {
+		document.title = "Aipan Store | Home";
+	}, []);
+
 	const random = products.slice(9, 13);
 
 	const addToCartHandler = (product) => {

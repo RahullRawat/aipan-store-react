@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Wishlist.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context";
@@ -13,6 +13,10 @@ export const Wishlist = () => {
 	const { wishlistItems } = wishlistState;
 	const { cartState, cartDispatch } = useCart();
 	const [disabled, setDisabled] = useState(false);
+
+	useEffect(() => {
+		document.title = "Aipan Store | Wishlist";
+	}, []);
 
 	const removeFromWishlistHandler = (id) => {
 		removeFromWishlist(id, token, wishlistDispatch);

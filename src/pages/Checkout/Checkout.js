@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAddress } from "../../context/AddressContext";
@@ -34,6 +34,10 @@ export const Checkout = () => {
 		cartState: { cartItems },
 		cartDispatch,
 	} = useCart();
+
+	useEffect(() => {
+		document.title = "Aipan Store | Checkout";
+	}, []);
 
 	const itemPrice = cartItems.reduce(
 		(acc, curr) => acc + curr.price * curr.qty,

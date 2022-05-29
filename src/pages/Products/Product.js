@@ -67,6 +67,10 @@ export const Product = () => {
 		getAddress(token, addressDispatch);
 	}, []);
 
+	useEffect(() => {
+		document.title = "Aipan Store | Products";
+	}, []);
+
 	const { token } = useAuth();
 	const navigate = useNavigate();
 	const { cartDispatch } = useCart();

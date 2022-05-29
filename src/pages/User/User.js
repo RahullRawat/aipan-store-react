@@ -1,5 +1,5 @@
-import React from "react";
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context";
 import { Address, Orders, Profile } from "../../components";
 import "./User.css";
@@ -8,6 +8,10 @@ export const User = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { userData, signOut } = useAuth();
+
+	useEffect(() => {
+		document.title = "Aipan Store | User";
+	}, []);
 
 	return (
 		<section className="user-profile-container ">

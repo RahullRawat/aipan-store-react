@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Cart.css";
 import CartProduct from "./components/CartProduct";
 import CartSummary from "./components/CartSummary";
@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 
 export const Cart = () => {
 	const { cartState } = useCart();
+	useEffect(() => {
+		document.title = "Aipan Store | Cart";
+	}, []);
 	return (
 		<div>
 			{cartState.cartItems.length !== 0 ? (
